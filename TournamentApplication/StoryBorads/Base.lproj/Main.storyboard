@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Hello-->
+        <!--Tournaments-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="TournamentApplication" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,8 +70,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Hello" largeTitleDisplayMode="always" id="Tlu-3G-MxR">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BMi-Z8-UOu"/>
+                    <navigationItem key="navigationItem" title="Tournaments" largeTitleDisplayMode="always" id="Tlu-3G-MxR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BMi-Z8-UOu">
+                            <connections>
+                                <segue destination="f62-K8-D4M" kind="show" id="Ysu-YZ-gp2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tournamentsTableView" destination="Pxa-Ll-gNG" id="SpP-LU-0bl"/>
@@ -80,6 +84,208 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="133.5832083958021"/>
+        </scene>
+        <!--Create Tournament-->
+        <scene sceneID="o69-nQ-Sgm">
+            <objects>
+                <viewController id="f62-K8-D4M" customClass="CreateTournamentViewController" customModule="TournamentApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jdj-Tq-wgV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyH-O9-iIa">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A2N-ZE-IfB">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qqv-Ah-ajg">
+                                                <rect key="frame" x="15" y="15" width="345" height="180"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="axN-CY-zGm">
+                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="39"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Tournament Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="faH-7X-cXC">
+                                                                <rect key="frame" x="8" y="4.5" width="329" height="30"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                                                            </textField>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="faH-7X-cXC" firstAttribute="centerX" secondItem="axN-CY-zGm" secondAttribute="centerX" id="4cC-a1-9d0"/>
+                                                            <constraint firstItem="faH-7X-cXC" firstAttribute="centerY" secondItem="axN-CY-zGm" secondAttribute="centerY" id="7FU-NX-Cak"/>
+                                                            <constraint firstAttribute="trailing" secondItem="faH-7X-cXC" secondAttribute="trailing" constant="8" id="MlB-fK-chs"/>
+                                                            <constraint firstItem="faH-7X-cXC" firstAttribute="leading" secondItem="axN-CY-zGm" secondAttribute="leading" constant="8" id="sDG-cN-1a4"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hTf-Sc-7ek">
+                                                        <rect key="frame" x="0.0" y="47" width="345" height="39"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="REY-2i-ayh">
+                                                                <rect key="frame" x="8" y="4.5" width="329" height="30"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfl-yP-VYb">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="73.5" height="30"/>
+                                                                        <state key="normal" title="4 Players"/>
+                                                                        <connections>
+                                                                            <action selector="fourPlayersButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="sPY-bk-7S3"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rpV-sn-QyI">
+                                                                        <rect key="frame" x="85.5" y="0.0" width="73" height="30"/>
+                                                                        <state key="normal" title="8 Players"/>
+                                                                        <connections>
+                                                                            <action selector="eightPlayersButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="mWN-po-uBE"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14U-SZ-fdl">
+                                                                        <rect key="frame" x="170.5" y="0.0" width="73.5" height="30"/>
+                                                                        <state key="normal" title="16 Players"/>
+                                                                        <connections>
+                                                                            <action selector="sixteenPlayersButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="ePE-l9-i7o"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hbi-nB-SMS">
+                                                                        <rect key="frame" x="256" y="0.0" width="73" height="30"/>
+                                                                        <state key="normal" title="32 Players"/>
+                                                                        <connections>
+                                                                            <action selector="thirtytwoPlayersButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="pyc-nM-B7C"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="REY-2i-ayh" firstAttribute="leading" secondItem="hTf-Sc-7ek" secondAttribute="leading" constant="8" id="Gv6-h8-lyx"/>
+                                                            <constraint firstAttribute="trailing" secondItem="REY-2i-ayh" secondAttribute="trailing" constant="8" id="MJR-9L-Zii"/>
+                                                            <constraint firstItem="REY-2i-ayh" firstAttribute="centerY" secondItem="hTf-Sc-7ek" secondAttribute="centerY" id="cJy-db-nVd"/>
+                                                            <constraint firstItem="REY-2i-ayh" firstAttribute="centerX" secondItem="hTf-Sc-7ek" secondAttribute="centerX" id="hya-Ak-xU0"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uku-Le-eHf">
+                                                        <rect key="frame" x="0.0" y="94" width="345" height="39"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="msC-As-P0d">
+                                                                <rect key="frame" x="8" y="4.5" width="329" height="30"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9BO-fJ-X5G">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="30"/>
+                                                                        <state key="normal" title="Rearange Players"/>
+                                                                        <connections>
+                                                                            <action selector="rearangePlayersButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="V1m-c6-Aq1"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRM-vf-0uf">
+                                                                        <rect key="frame" x="170.5" y="0.0" width="158.5" height="30"/>
+                                                                        <state key="normal" title="Shuffle Players"/>
+                                                                        <connections>
+                                                                            <action selector="shufflePlayersButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="eoq-XQ-ef8"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="msC-As-P0d" secondAttribute="trailing" constant="8" id="0a5-3A-B5I"/>
+                                                            <constraint firstItem="msC-As-P0d" firstAttribute="centerX" secondItem="uku-Le-eHf" secondAttribute="centerX" id="Ey1-Qm-QUA"/>
+                                                            <constraint firstItem="msC-As-P0d" firstAttribute="centerY" secondItem="uku-Le-eHf" secondAttribute="centerY" id="F0c-7G-VHo"/>
+                                                            <constraint firstItem="msC-As-P0d" firstAttribute="leading" secondItem="uku-Le-eHf" secondAttribute="leading" constant="8" id="n7T-Ya-wXq"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PPh-QV-Fhm">
+                                                        <rect key="frame" x="0.0" y="141" width="345" height="39"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="fPB-EZ-HZn">
+                                                                <rect key="frame" x="8" y="4.5" width="329" height="30"/>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Players name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="euH-h7-e8B">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="287" height="30"/>
+                                                                        <nil key="textColor"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                                                                    </textField>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wQ-UJ-bki">
+                                                                        <rect key="frame" x="299" y="0.0" width="30" height="30"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="30" id="dy6-xc-5Nb"/>
+                                                                        </constraints>
+                                                                        <state key="normal" title="+"/>
+                                                                        <connections>
+                                                                            <action selector="addPlayerButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="E8k-rA-MuY"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="fPB-EZ-HZn" firstAttribute="leading" secondItem="PPh-QV-Fhm" secondAttribute="leading" constant="8" id="8eb-IP-5i9"/>
+                                                            <constraint firstItem="fPB-EZ-HZn" firstAttribute="centerX" secondItem="PPh-QV-Fhm" secondAttribute="centerX" id="XwA-nD-9Ee"/>
+                                                            <constraint firstAttribute="trailing" secondItem="fPB-EZ-HZn" secondAttribute="trailing" constant="8" id="jeA-5j-Wl4"/>
+                                                            <constraint firstItem="fPB-EZ-HZn" firstAttribute="centerY" secondItem="PPh-QV-Fhm" secondAttribute="centerY" id="kkF-SP-rEg"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="180" id="1HO-HY-Qzt"/>
+                                                </constraints>
+                                            </stackView>
+                                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oY2-4Q-EjP">
+                                                <rect key="frame" x="15" y="210" width="345" height="285"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.42481794049999999" green="1" blue="0.52826256890000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="oY2-4Q-EjP" secondAttribute="trailing" constant="15" id="10E-Rs-0he"/>
+                                            <constraint firstItem="Qqv-Ah-ajg" firstAttribute="leading" secondItem="A2N-ZE-IfB" secondAttribute="leading" constant="15" id="FT0-vC-Wjj"/>
+                                            <constraint firstItem="oY2-4Q-EjP" firstAttribute="top" secondItem="Qqv-Ah-ajg" secondAttribute="bottom" constant="15" id="bJZ-Wh-NJn"/>
+                                            <constraint firstItem="oY2-4Q-EjP" firstAttribute="leading" secondItem="A2N-ZE-IfB" secondAttribute="leading" constant="15" id="bPT-JO-DCE"/>
+                                            <constraint firstAttribute="trailing" secondItem="Qqv-Ah-ajg" secondAttribute="trailing" constant="15" id="np5-Rv-ccd"/>
+                                            <constraint firstItem="Qqv-Ah-ajg" firstAttribute="top" secondItem="A2N-ZE-IfB" secondAttribute="top" constant="15" id="uDp-Ze-C07"/>
+                                            <constraint firstAttribute="bottom" secondItem="oY2-4Q-EjP" secondAttribute="bottom" constant="108" id="vhg-6a-TTg"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="A2N-ZE-IfB" firstAttribute="width" secondItem="dyH-O9-iIa" secondAttribute="width" id="C9M-Uh-w5z"/>
+                                    <constraint firstItem="A2N-ZE-IfB" firstAttribute="height" secondItem="dyH-O9-iIa" secondAttribute="height" priority="250" id="g7f-co-QvV"/>
+                                    <constraint firstItem="A2N-ZE-IfB" firstAttribute="top" secondItem="dyH-O9-iIa" secondAttribute="top" id="kiK-Mu-FJJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="A2N-ZE-IfB" secondAttribute="trailing" id="kom-Tg-ygT"/>
+                                    <constraint firstAttribute="bottom" secondItem="A2N-ZE-IfB" secondAttribute="bottom" id="v3L-SC-Yfd"/>
+                                    <constraint firstItem="A2N-ZE-IfB" firstAttribute="leading" secondItem="dyH-O9-iIa" secondAttribute="leading" id="y8L-VC-YzD"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dyH-O9-iIa" firstAttribute="leading" secondItem="H1b-2P-9zg" secondAttribute="leading" id="9Rj-m1-yaU"/>
+                            <constraint firstItem="dyH-O9-iIa" firstAttribute="top" secondItem="H1b-2P-9zg" secondAttribute="top" id="9TB-Od-zk1"/>
+                            <constraint firstItem="H1b-2P-9zg" firstAttribute="trailing" secondItem="dyH-O9-iIa" secondAttribute="trailing" id="cGA-wf-sv4"/>
+                            <constraint firstItem="H1b-2P-9zg" firstAttribute="bottom" secondItem="dyH-O9-iIa" secondAttribute="bottom" id="wbJ-Zi-w6G"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="H1b-2P-9zg"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Tournament" id="hIC-hC-vNt">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="EaV-qg-ogR">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="f62-K8-D4M" id="ADz-h6-sr1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="playerNameTextField" destination="euH-h7-e8B" id="USA-Zc-kqv"/>
+                        <outlet property="playersTableView" destination="oY2-4Q-EjP" id="CWj-Xm-2Ze"/>
+                        <outlet property="tournamentNameTextField" destination="faH-7X-cXC" id="XOX-aJ-WNf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sot-Km-Le7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="846.9265367316342"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JkP-fy-oJr">
