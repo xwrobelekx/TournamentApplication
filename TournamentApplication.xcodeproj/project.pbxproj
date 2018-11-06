@@ -12,6 +12,10 @@
 		3B26537A2192160A0004CFE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B2653782192160A0004CFE1 /* Main.storyboard */; };
 		3B26537C2192160A0004CFE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B26537B2192160A0004CFE1 /* Assets.xcassets */; };
 		3B26537F2192160A0004CFE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B26537D2192160A0004CFE1 /* LaunchScreen.storyboard */; };
+		3B26538D21921AA30004CFE1 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26538C21921AA30004CFE1 /* Player.swift */; };
+		3B26538F21921AC70004CFE1 /* Tournament.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26538E21921AC70004CFE1 /* Tournament.swift */; };
+		3B26539121921AE60004CFE1 /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26539021921AE60004CFE1 /* Round.swift */; };
+		3B26539321921B380004CFE1 /* RoundNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26539221921B370004CFE1 /* RoundNames.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		3B26537B2192160A0004CFE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B26537E2192160A0004CFE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B2653802192160A0004CFE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B26538C21921AA30004CFE1 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		3B26538E21921AC70004CFE1 /* Tournament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tournament.swift; sourceTree = "<group>"; };
+		3B26539021921AE60004CFE1 /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
+		3B26539221921B370004CFE1 /* RoundNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundNames.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,66 @@
 		3B2653732192160A0004CFE1 /* TournamentApplication */ = {
 			isa = PBXGroup;
 			children = (
-				3B2653742192160A0004CFE1 /* AppDelegate.swift */,
-				3B2653762192160A0004CFE1 /* ViewController.swift */,
-				3B2653782192160A0004CFE1 /* Main.storyboard */,
-				3B26537B2192160A0004CFE1 /* Assets.xcassets */,
-				3B26537D2192160A0004CFE1 /* LaunchScreen.storyboard */,
-				3B2653802192160A0004CFE1 /* Info.plist */,
+				3B26538B21921A600004CFE1 /* Models */,
+				3B26538A21921A570004CFE1 /* ModelController */,
+				3B26538921921A500004CFE1 /* Views */,
+				3B26538821921A450004CFE1 /* ViewControlles */,
+				3B26538721921A360004CFE1 /* StoryBorads */,
+				3B26538621921A1F0004CFE1 /* Resources */,
 			);
 			path = TournamentApplication;
+			sourceTree = "<group>";
+		};
+		3B26538621921A1F0004CFE1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3B2653742192160A0004CFE1 /* AppDelegate.swift */,
+				3B26537D2192160A0004CFE1 /* LaunchScreen.storyboard */,
+				3B26537B2192160A0004CFE1 /* Assets.xcassets */,
+				3B2653802192160A0004CFE1 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3B26538721921A360004CFE1 /* StoryBorads */ = {
+			isa = PBXGroup;
+			children = (
+				3B2653782192160A0004CFE1 /* Main.storyboard */,
+			);
+			path = StoryBorads;
+			sourceTree = "<group>";
+		};
+		3B26538821921A450004CFE1 /* ViewControlles */ = {
+			isa = PBXGroup;
+			children = (
+				3B2653762192160A0004CFE1 /* ViewController.swift */,
+			);
+			path = ViewControlles;
+			sourceTree = "<group>";
+		};
+		3B26538921921A500004CFE1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3B26538A21921A570004CFE1 /* ModelController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelController;
+			sourceTree = "<group>";
+		};
+		3B26538B21921A600004CFE1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3B26538C21921AA30004CFE1 /* Player.swift */,
+				3B26538E21921AC70004CFE1 /* Tournament.swift */,
+				3B26539021921AE60004CFE1 /* Round.swift */,
+				3B26539221921B370004CFE1 /* RoundNames.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +195,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B26538F21921AC70004CFE1 /* Tournament.swift in Sources */,
 				3B2653772192160A0004CFE1 /* ViewController.swift in Sources */,
+				3B26538D21921AA30004CFE1 /* Player.swift in Sources */,
+				3B26539121921AE60004CFE1 /* Round.swift in Sources */,
 				3B2653752192160A0004CFE1 /* AppDelegate.swift in Sources */,
+				3B26539321921B380004CFE1 /* RoundNames.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +348,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5EAUJPVR66;
-				INFOPLIST_FILE = TournamentApplication/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TournamentApplication/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +366,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5EAUJPVR66;
-				INFOPLIST_FILE = TournamentApplication/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TournamentApplication/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
