@@ -19,6 +19,7 @@
 		3B26539721921CF70004CFE1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26539621921CF70004CFE1 /* MainViewController.swift */; };
 		3B265399219233720004CFE1 /* TournamentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B265398219233720004CFE1 /* TournamentCollectionViewCell.swift */; };
 		3B26539B219247630004CFE1 /* CreateTournamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26539A219247630004CFE1 /* CreateTournamentViewController.swift */; };
+		3B26539E2192614C0004CFE1 /* SelfSizingTableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26539D2192614C0004CFE1 /* SelfSizingTableViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		3B26539621921CF70004CFE1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3B265398219233720004CFE1 /* TournamentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentCollectionViewCell.swift; sourceTree = "<group>"; };
 		3B26539A219247630004CFE1 /* CreateTournamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTournamentViewController.swift; sourceTree = "<group>"; };
+		3B26539D2192614C0004CFE1 /* SelfSizingTableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingTableViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		3B2653732192160A0004CFE1 /* TournamentApplication */ = {
 			isa = PBXGroup;
 			children = (
+				3B26539C2192612A0004CFE1 /* Subclasses */,
 				3B26538B21921A600004CFE1 /* Models */,
 				3B26538A21921A570004CFE1 /* ModelController */,
 				3B26538921921A500004CFE1 /* Views */,
@@ -131,6 +134,14 @@
 				3B26539221921B370004CFE1 /* RoundNames.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3B26539C2192612A0004CFE1 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				3B26539D2192614C0004CFE1 /* SelfSizingTableViews.swift */,
+			);
+			path = Subclasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +218,7 @@
 				3B26539B219247630004CFE1 /* CreateTournamentViewController.swift in Sources */,
 				3B26538F21921AC70004CFE1 /* Tournament.swift in Sources */,
 				3B26538D21921AA30004CFE1 /* Player.swift in Sources */,
+				3B26539E2192614C0004CFE1 /* SelfSizingTableViews.swift in Sources */,
 				3B26539121921AE60004CFE1 /* Round.swift in Sources */,
 				3B26539521921C2F0004CFE1 /* TournamentController.swift in Sources */,
 				3B2653752192160A0004CFE1 /* AppDelegate.swift in Sources */,

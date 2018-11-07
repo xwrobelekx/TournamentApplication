@@ -20,11 +20,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         tournamentsTableView.delegate = self
         tournamentsTableView.dataSource = self
-        
-
         navigationController?.navigationBar.prefersLargeTitles = true
-        
-        // Do any additional setup after loading the view.
+        }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tournamentsTableView.reloadData()
     }
     
 
