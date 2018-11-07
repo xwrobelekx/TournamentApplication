@@ -86,8 +86,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let round = turnament.round.first
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let viewController = storyboard.instantiateViewController(withIdentifier: "GameCVC") as? GameCollectionViewController {
-          //  viewController.tournamentName = turnament
-          //  viewController.round = round
+            viewController.tournamentName = turnament
+            viewController.round = round
             viewController.navigationItem.title = turnament.name
             self.navigationController?.pushViewController(viewController, animated: true)
         }

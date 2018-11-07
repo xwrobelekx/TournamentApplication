@@ -80,6 +80,9 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
     }
     
     
+ 
+    
+    
     //MARK: - Actions
     @IBAction func rearangePlayersButtonTapped(_ sender: Any) {
         if !playersTableView.isEditing {

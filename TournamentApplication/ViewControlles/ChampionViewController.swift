@@ -9,22 +9,30 @@
 import UIKit
 
 class ChampionViewController: UIViewController {
-
+    
+    
+    var tournamentName : Tournament?
+    var round : Round?
+    
+    
+    @IBOutlet weak var championNameLabel: UILabel!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        guard let round = round else {return}
+        guard let champion = round.players.first else {return}
+        
+        championNameLabel.text = champion.name
+        tournamentName?.isCompleted = true
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+ 
+    @IBAction func homeButtonTapped(_ sender: Any) {
+        navigationController?.popToRootViewController(animated: true)
     }
-    */
-
+    
 }

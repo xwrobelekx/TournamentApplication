@@ -62,7 +62,7 @@
                         <constraints>
                             <constraint firstItem="SVd-EB-umR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Noh-ol-eJh"/>
                             <constraint firstItem="SVd-EB-umR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dfA-ao-dBQ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SVd-EB-umR" secondAttribute="bottom" id="ovz-qd-w0q"/>
+                            <constraint firstAttribute="bottom" secondItem="SVd-EB-umR" secondAttribute="bottom" id="ovz-qd-w0q"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SVd-EB-umR" secondAttribute="trailing" id="waD-wJ-hQ5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -82,7 +82,7 @@
             </objects>
             <point key="canvasLocation" x="1076" y="133.5832083958021"/>
         </scene>
-        <!--Game Collection View Controller-->
+        <!--Title-->
         <scene sceneID="P5y-Ph-UTD">
             <objects>
                 <collectionViewController storyboardIdentifier="GameCVC" id="FJH-cL-3P6" customClass="GameCollectionViewController" customModule="TournamentApplication" customModuleProvider="target" sceneMemberID="viewController">
@@ -97,13 +97,55 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="r75-YZ-L0b" customClass="TournamentCollectionViewCell" customModule="TournamentApplication" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="playersCell" id="r75-YZ-L0b" customClass="TournamentCollectionViewCell" customModule="TournamentApplication" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="159" height="153"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="159" height="153"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Name)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97z-dL-Kiz">
+                                            <rect key="frame" x="50.5" y="66" width="58" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="score?..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mfb-II-rma">
+                                            <rect key="frame" x="41.5" y="102" width="76" height="30"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
+                                        </textField>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zX9-sH-mYx">
+                                            <rect key="frame" x="58.5" y="104" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(winner)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZw-Go-0BT">
+                                            <rect key="frame" x="47.5" y="30" width="64" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="hZw-Go-0BT" firstAttribute="centerX" secondItem="r75-YZ-L0b" secondAttribute="centerX" id="HED-RH-Xfr"/>
+                                    <constraint firstItem="mfb-II-rma" firstAttribute="centerX" secondItem="r75-YZ-L0b" secondAttribute="centerX" id="HyW-kG-jvV"/>
+                                    <constraint firstItem="mfb-II-rma" firstAttribute="top" secondItem="97z-dL-Kiz" secondAttribute="bottom" constant="15" id="Rkk-Q9-F7H"/>
+                                    <constraint firstItem="97z-dL-Kiz" firstAttribute="centerX" secondItem="r75-YZ-L0b" secondAttribute="centerX" id="SR1-U1-l6t"/>
+                                    <constraint firstItem="zX9-sH-mYx" firstAttribute="top" secondItem="97z-dL-Kiz" secondAttribute="bottom" constant="17" id="dQv-2s-Ir7"/>
+                                    <constraint firstItem="97z-dL-Kiz" firstAttribute="top" secondItem="hZw-Go-0BT" secondAttribute="bottom" constant="15" id="uVo-ig-YFo"/>
+                                    <constraint firstItem="zX9-sH-mYx" firstAttribute="centerX" secondItem="r75-YZ-L0b" secondAttribute="centerX" id="v0a-Yq-eg3"/>
+                                    <constraint firstItem="97z-dL-Kiz" firstAttribute="centerY" secondItem="r75-YZ-L0b" secondAttribute="centerY" id="wcr-x9-dK5"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="playersNameLabel" destination="97z-dL-Kiz" id="uqj-z1-ymw"/>
+                                    <outlet property="scoreLabel" destination="zX9-sH-mYx" id="DxP-x9-4OO"/>
+                                    <outlet property="scoreTextField" destination="mfb-II-rma" id="SSe-UT-sCT"/>
+                                    <outlet property="winnerLabel" destination="hZw-Go-0BT" id="sTi-rq-oGv"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -111,15 +153,22 @@
                             <outlet property="delegate" destination="FJH-cL-3P6" id="dfz-B9-gpN"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" title="Title" id="Boe-hA-Q6h">
+                        <barButtonItem key="rightBarButtonItem" title="Next Round" id="Nsf-MS-2oG" userLabel="Next">
+                            <connections>
+                                <action selector="nextRoundButtonTapped:" destination="FJH-cL-3P6" id="08y-5f-Gge"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pLW-gg-Olz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1836" y="138.98050974512745"/>
+            <point key="canvasLocation" x="2775.1999999999998" y="138.98050974512745"/>
         </scene>
-        <!--Champion View Controller-->
+        <!--Champion-->
         <scene sceneID="rVZ-He-cYr">
             <objects>
-                <viewController id="7mY-za-194" customClass="ChampionViewController" customModule="TournamentApplication" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="championVC" id="7mY-za-194" customClass="ChampionViewController" customModule="TournamentApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eX1-5A-RNg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -146,10 +195,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="z6U-cs-kle"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Champion" id="pnH-l9-mlR">
+                        <barButtonItem key="rightBarButtonItem" title="Home" id="qTW-0B-1F7">
+                            <connections>
+                                <action selector="homeButtonTapped:" destination="7mY-za-194" id="qT9-01-oM5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="championNameLabel" destination="b7w-Pt-Jk4" id="XvG-cP-b55"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZi-kf-K7C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2608" y="140"/>
+            <point key="canvasLocation" x="3546.4000000000001" y="139.880059970015"/>
         </scene>
         <!--Create Tournament-->
         <scene sceneID="o69-nQ-Sgm">
@@ -341,7 +400,7 @@
                             <constraint firstItem="dyH-O9-iIa" firstAttribute="leading" secondItem="H1b-2P-9zg" secondAttribute="leading" id="9Rj-m1-yaU"/>
                             <constraint firstItem="dyH-O9-iIa" firstAttribute="top" secondItem="H1b-2P-9zg" secondAttribute="top" id="9TB-Od-zk1"/>
                             <constraint firstItem="H1b-2P-9zg" firstAttribute="trailing" secondItem="dyH-O9-iIa" secondAttribute="trailing" id="cGA-wf-sv4"/>
-                            <constraint firstItem="H1b-2P-9zg" firstAttribute="bottom" secondItem="dyH-O9-iIa" secondAttribute="bottom" id="wbJ-Zi-w6G"/>
+                            <constraint firstAttribute="bottom" secondItem="dyH-O9-iIa" secondAttribute="bottom" id="wbJ-Zi-w6G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="H1b-2P-9zg"/>
                     </view>
