@@ -71,6 +71,28 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tournament : Tournament?
+        
+        if indexPath.section == 0 {
+            let turnaments = TournamentController.shared.tournaments.filter({!$0.isCompleted})
+            tournament = turnaments[indexPath.row]
+        } else {
+            let turnaments = TournamentController.shared.tournaments.filter({$0.isCompleted})
+            tournament = turnaments[indexPath.row]
+        }
+        
+        guard let turnament = tournament else {return}
+        let round = turnament.round.first
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let viewController = storyboard.instantiateViewController(withIdentifier: "GameCVC") as? GameCollectionViewController {
+          //  viewController.tournamentName = turnament
+          //  viewController.round = round
+            viewController.navigationItem.title = turnament.name
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
   
     
     

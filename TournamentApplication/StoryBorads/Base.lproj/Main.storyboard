@@ -82,6 +82,75 @@
             </objects>
             <point key="canvasLocation" x="1076" y="133.5832083958021"/>
         </scene>
+        <!--Game Collection View Controller-->
+        <scene sceneID="P5y-Ph-UTD">
+            <objects>
+                <collectionViewController storyboardIdentifier="GameCVC" id="FJH-cL-3P6" customClass="GameCollectionViewController" customModule="TournamentApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="hvo-lH-gfl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fGG-wH-1bE">
+                            <size key="itemSize" width="159" height="153"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="r75-YZ-L0b" customClass="TournamentCollectionViewCell" customModule="TournamentApplication" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="159" height="153"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="159" height="153"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="FJH-cL-3P6" id="LcH-ZL-ieI"/>
+                            <outlet property="delegate" destination="FJH-cL-3P6" id="dfz-B9-gpN"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pLW-gg-Olz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1836" y="138.98050974512745"/>
+        </scene>
+        <!--Champion View Controller-->
+        <scene sceneID="rVZ-He-cYr">
+            <objects>
+                <viewController id="7mY-za-194" customClass="ChampionViewController" customModule="TournamentApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eX1-5A-RNg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Champion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sm6-8L-WYW">
+                                <rect key="frame" x="29" y="290" width="317.5" height="87.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="73"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7w-Pt-Jk4">
+                                <rect key="frame" x="143" y="397.5" width="89.5" height="45.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Sm6-8L-WYW" firstAttribute="centerY" secondItem="eX1-5A-RNg" secondAttribute="centerY" id="CIi-am-3Vh"/>
+                            <constraint firstItem="b7w-Pt-Jk4" firstAttribute="top" secondItem="Sm6-8L-WYW" secondAttribute="bottom" constant="20" id="G2r-py-lpP"/>
+                            <constraint firstItem="Sm6-8L-WYW" firstAttribute="centerX" secondItem="eX1-5A-RNg" secondAttribute="centerX" id="LQo-Iw-4eB"/>
+                            <constraint firstItem="b7w-Pt-Jk4" firstAttribute="centerX" secondItem="eX1-5A-RNg" secondAttribute="centerX" id="wPA-aM-NUj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="z6U-cs-kle"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rZi-kf-K7C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2608" y="140"/>
+        </scene>
         <!--Create Tournament-->
         <scene sceneID="o69-nQ-Sgm">
             <objects>
