@@ -83,11 +83,28 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? TournamentCollectionViewCell
             let player = players[alteredIndexPath(indexPath: indexPath)]
+        
         cell?.delegate = self
+        cell?.winnerLabel.text = ""
+        
+        if player.roundWinner == true {
+            cell?.winnerLabel.text = "Winner"
+        }
+        
+        switch indexPath.section % 2 {
+        case 0 :
+            cell?.backgroundColor = .green
+        case 1: cell?.backgroundColor = .blue
+        default:
+            cell?.backgroundColor = .yellow
+        }
+        
+       
         
         if let score = player.score {
             cell?.scoreTextField.isHidden = true
             cell?.scoreLabel.isHidden = false
+            
             print("🖖 \(score)")
             cell?.scoreLabel.text = "\(score)"
         }
@@ -118,11 +135,13 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
                 if let playerONeScore = pair[0].score, let playerTwoScore = pair[1].score,  !pair[0].passedThruThisRound,  !pair[1].passedThruThisRound {
                     print("💙 Player one score \(playerONeScore),player two \(playerTwoScore)")
                     if playerONeScore > playerTwoScore {
+                        pair[0].roundWinner = true
                         let winerName = pair[0].name
                         let player = Player(name: winerName, score: nil)
                         winers.append(player)
                         print("💙 appending \(player.name) to winners")
                     } else if playerONeScore < playerTwoScore{
+                        pair[1].roundWinner = true
                         let winerName = pair[1].name
                         let player = Player(name: winerName, score: nil )
                         winers.append(player)

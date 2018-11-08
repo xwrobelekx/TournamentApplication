@@ -12,9 +12,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
   
     
-
-    @IBOutlet weak var tournamentsTableView: UITableView!
     
+    @IBOutlet weak var tournamentsTableView: UITableView!
+    @IBOutlet weak var tournamentListTVHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,21 +27,36 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         tournamentsTableView.reloadData()
+        tournamentListTVHeightConstraint.constant = tournamentsTableView.contentSize.height
     }
     
 
     //MARK: - Table View DataSource
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "Open Tournaments"
-        } else {
-            return "Completed Tournaments"
-        }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 35
     }
     
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = CustomViewWithRoundedCorners()
+        view.backgroundColor = .orange
+        let label = UILabel()
+        label.textColor = .white
+        if section == 0 {
+            label.text = "Current Tournaments"
+        } else {
+            label.text = "Completed Tournaments"
+        }
+        label.frame = CGRect(x: 15, y: 5, width: 200, height: 20)
+        view.addSubview(label)
+       
+        return view
+        
+        
     }
 
     
@@ -55,7 +70,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tournamentCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tournamentCell", for: indexPath) as? TournamentCustomTableViewCell
         var turnamentName = ""
         
         if indexPath.section == 0 {
@@ -66,8 +81,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             turnamentName = turnaments[indexPath.row].name
         }
         
-        cell.textLabel?.text = turnamentName
-        return cell
+        cell?.tournamentNameLabel.text = turnamentName
+        return cell ?? UITableViewCell()
     }
     
     

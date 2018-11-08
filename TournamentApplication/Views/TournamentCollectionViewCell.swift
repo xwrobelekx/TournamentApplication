@@ -26,6 +26,10 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         scoreTextField.delegate = self
+        
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = 9
+        
         NotificationCenter.default.addObserver(self, selector: #selector(runThisCodeToSaveMyScore), name: NSNotification.Name("userPressedNextRoundButtonNotification"), object: nil)
     }
     

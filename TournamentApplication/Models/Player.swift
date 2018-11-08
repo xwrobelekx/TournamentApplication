@@ -13,11 +13,13 @@ class Player {
     
     var name: String
     var score: Int?
-    var passedThruThisRound : Bool = false
+    var passedThruThisRound : Bool
+    var roundWinner: Bool
     
-    init(name: String, score: Int?, passedThruThisRound: Bool = false){
+    init(name: String, score: Int?, passedThruThisRound: Bool = false, roundWinner: Bool = false){
         self.name = name
         self.score = score
         self.passedThruThisRound = passedThruThisRound
+        self.roundWinner = roundWinner
     }
 }

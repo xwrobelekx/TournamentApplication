@@ -22,6 +22,10 @@
 		3B26539E2192614C0004CFE1 /* SelfSizingTableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26539D2192614C0004CFE1 /* SelfSizingTableViews.swift */; };
 		3B2653A0219265030004CFE1 /* ChampionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26539F219265030004CFE1 /* ChampionViewController.swift */; };
 		3B2653A22192655D0004CFE1 /* GameCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2653A12192655D0004CFE1 /* GameCollectionViewController.swift */; };
+		3B2653A6219295FA0004CFE1 /* CustomViewWithRoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2653A5219295FA0004CFE1 /* CustomViewWithRoundedCorners.swift */; };
+		3B2653A821935F3C0004CFE1 /* PlayerCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2653A721935F3C0004CFE1 /* PlayerCustomTableViewCell.swift */; };
+		3BECF05B2194BE5800EF7CF6 /* TournamentCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BECF05A2194BE5800EF7CF6 /* TournamentCustomTableViewCell.swift */; };
+		3BECF05D2194DC8200EF7CF6 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BECF05C2194DC8200EF7CF6 /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		3B26539D2192614C0004CFE1 /* SelfSizingTableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingTableViews.swift; sourceTree = "<group>"; };
 		3B26539F219265030004CFE1 /* ChampionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionViewController.swift; sourceTree = "<group>"; };
 		3B2653A12192655D0004CFE1 /* GameCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCollectionViewController.swift; sourceTree = "<group>"; };
+		3B2653A5219295FA0004CFE1 /* CustomViewWithRoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewWithRoundedCorners.swift; sourceTree = "<group>"; };
+		3B2653A721935F3C0004CFE1 /* PlayerCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCustomTableViewCell.swift; sourceTree = "<group>"; };
+		3BECF05A2194BE5800EF7CF6 /* TournamentCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentCustomTableViewCell.swift; sourceTree = "<group>"; };
+		3BECF05C2194DC8200EF7CF6 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +126,8 @@
 		3B26538921921A500004CFE1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3B2653A721935F3C0004CFE1 /* PlayerCustomTableViewCell.swift */,
+				3BECF05A2194BE5800EF7CF6 /* TournamentCustomTableViewCell.swift */,
 				3B265398219233720004CFE1 /* TournamentCollectionViewCell.swift */,
 			);
 			path = Views;
@@ -146,6 +156,8 @@
 			isa = PBXGroup;
 			children = (
 				3B26539D2192614C0004CFE1 /* SelfSizingTableViews.swift */,
+				3B2653A5219295FA0004CFE1 /* CustomViewWithRoundedCorners.swift */,
+				3BECF05C2194DC8200EF7CF6 /* RoundedButton.swift */,
 			);
 			path = Subclasses;
 			sourceTree = "<group>";
@@ -222,6 +234,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B26539B219247630004CFE1 /* CreateTournamentViewController.swift in Sources */,
+				3B2653A821935F3C0004CFE1 /* PlayerCustomTableViewCell.swift in Sources */,
+				3B2653A6219295FA0004CFE1 /* CustomViewWithRoundedCorners.swift in Sources */,
 				3B26538F21921AC70004CFE1 /* Tournament.swift in Sources */,
 				3B26538D21921AA30004CFE1 /* Player.swift in Sources */,
 				3B26539E2192614C0004CFE1 /* SelfSizingTableViews.swift in Sources */,
@@ -230,7 +244,9 @@
 				3B2653A22192655D0004CFE1 /* GameCollectionViewController.swift in Sources */,
 				3B26539521921C2F0004CFE1 /* TournamentController.swift in Sources */,
 				3B2653752192160A0004CFE1 /* AppDelegate.swift in Sources */,
+				3BECF05D2194DC8200EF7CF6 /* RoundedButton.swift in Sources */,
 				3B265399219233720004CFE1 /* TournamentCollectionViewCell.swift in Sources */,
+				3BECF05B2194BE5800EF7CF6 /* TournamentCustomTableViewCell.swift in Sources */,
 				3B26539321921B380004CFE1 /* RoundNames.swift in Sources */,
 				3B26539721921CF70004CFE1 /* MainViewController.swift in Sources */,
 			);

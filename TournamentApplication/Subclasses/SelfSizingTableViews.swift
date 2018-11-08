@@ -25,7 +25,7 @@ class SelfSizedTableView: UITableView {
     
     //MARK: - Settings
     override var intrinsicContentSize: CGSize {
-        let height = min(contentSize.height, maxHeight)
-        return CGSize(width: contentSize.width, height: height)
+           let height = min(contentSize.height, maxHeight)
+        return CGSize(width: contentSize.width, height: height) //+ contentSize.height)
     }
 }
