@@ -11,9 +11,8 @@ import UIKit
 private let reuseIdentifier = "playersCell"
 
 class GameCollectionViewController: UICollectionViewController, PlayerCollectionViewCellDelegate {
-   
-    
   
+    
     //MARK: - Properties
     var numberofSections: Int = 0
     var round : Round?
@@ -55,7 +54,6 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? TournamentCollectionViewCell
-           // let player = players[alteredIndexPath(indexPath: indexPath)]
             let players = playerPairs[indexPath.row]
         cell?.delegate = self
         cell?.backgroundColor = .black
@@ -63,6 +61,35 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
         cell?.playerTwo = players[1]
         return cell ?? UICollectionViewCell()
         }
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let players = playerPairs[indexPath.row]
+        
+        //go to next screen where you can increment or decrement scores
+      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let resolveTieVc = storyboard.instantiateViewController(withIdentifier: "tieVC") as? ResolveTieViewController {
+       resolveTieVc.playerOne = playerPairs[indexPath.row][0]
+            resolveTieVc.playerTwo = playerPairs[indexPath.row][1]
+            self.navigationController?.pushViewController(resolveTieVc, animated: true)
+
+        }
+        
+        
+    }
+    
+    
+    //MARK: - 3DTouch delegate methods
+//    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+//
+//        guard let popVC = storyboard?.instantiateViewController(withIdentifier: "popVC") as? ResolveTiePoPViewController else {return UIViewController()}
+//        popVC.preferredContentSize = CGSize(width: 0.0, height: 300)
+//        return popVC
+//    }
+//
+//    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+//
+//    }
 
     
     @objc func postNotificationToSaveUserScore(){

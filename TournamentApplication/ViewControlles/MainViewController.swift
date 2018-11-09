@@ -9,12 +9,13 @@
 import UIKit
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-  
+    
+    
     
     //MARK: - Outlets
     @IBOutlet weak var tournamentsTableView: UITableView!
     @IBOutlet weak var tournamentListTVHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var infoLabel: UILabel!
     
     
     //MARK: - LifeCycle Methods
@@ -23,16 +24,18 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         tournamentsTableView.delegate = self
         tournamentsTableView.dataSource = self
         navigationController?.navigationBar.prefersLargeTitles = true
-        }
+        hideShowInfoLabel()
+    }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         tournamentsTableView.reloadData()
         tournamentListTVHeightConstraint.constant = tournamentsTableView.contentSize.height
+        hideShowInfoLabel()
     }
     
-
+    
     //MARK: - Table View DataSource
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -67,14 +70,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.backgroundColor = .black
         return view
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return TournamentController.shared.tournaments.filter({!$0.isCompleted}).count
         } else {
             return TournamentController.shared.tournaments.filter({$0.isCompleted}).count
         }
-
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -116,10 +119,23 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-  
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            TournamentController.shared.tournaments.remove(at: indexPath.row)
+        }
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        tableView.reloadData()
+        hideShowInfoLabel()
+    }
     
     
-    
-    
-
+    func hideShowInfoLabel(){
+        infoLabel.isHidden = true
+        tournamentsTableView.isHidden = false
+        if TournamentController.shared.tournaments.isEmpty {
+            infoLabel.isHidden = false
+            tournamentsTableView.isHidden = true
+        }
+    }
 }

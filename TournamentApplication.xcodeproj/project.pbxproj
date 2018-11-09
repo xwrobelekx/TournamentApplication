@@ -27,6 +27,7 @@
 		3BECF05B2194BE5800EF7CF6 /* TournamentCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BECF05A2194BE5800EF7CF6 /* TournamentCustomTableViewCell.swift */; };
 		3BECF05D2194DC8200EF7CF6 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BECF05C2194DC8200EF7CF6 /* RoundedButton.swift */; };
 		3BECF05F2194EDFE00EF7CF6 /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BECF05E2194EDFE00EF7CF6 /* PlayerController.swift */; };
+		3BECF06121953FDF00EF7CF6 /* ResolveTieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BECF06021953FDF00EF7CF6 /* ResolveTieViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		3BECF05A2194BE5800EF7CF6 /* TournamentCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentCustomTableViewCell.swift; sourceTree = "<group>"; };
 		3BECF05C2194DC8200EF7CF6 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		3BECF05E2194EDFE00EF7CF6 /* PlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
+		3BECF06021953FDF00EF7CF6 /* ResolveTieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveTieViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				3B26539A219247630004CFE1 /* CreateTournamentViewController.swift */,
 				3B26539F219265030004CFE1 /* ChampionViewController.swift */,
 				3B2653A12192655D0004CFE1 /* GameCollectionViewController.swift */,
+				3BECF06021953FDF00EF7CF6 /* ResolveTieViewController.swift */,
 			);
 			path = ViewControlles;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				3B26539E2192614C0004CFE1 /* SelfSizingTableViews.swift in Sources */,
 				3B26539121921AE60004CFE1 /* Round.swift in Sources */,
 				3B2653A0219265030004CFE1 /* ChampionViewController.swift in Sources */,
+				3BECF06121953FDF00EF7CF6 /* ResolveTieViewController.swift in Sources */,
 				3B2653A22192655D0004CFE1 /* GameCollectionViewController.swift in Sources */,
 				3B26539521921C2F0004CFE1 /* TournamentController.swift in Sources */,
 				3B2653752192160A0004CFE1 /* AppDelegate.swift in Sources */,
