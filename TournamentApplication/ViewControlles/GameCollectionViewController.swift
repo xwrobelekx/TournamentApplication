@@ -14,7 +14,6 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
    
     
   
-    
     //MARK: - Properties
     var numberofSections: Int = 0
     var round : Round?
@@ -33,7 +32,9 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
     //MARK: LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  playerPairs = PlayerController.shared.convertToPairs(array: players)
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(postNotificationToSaveUserScore) )
+        view.addGestureRecognizer(tap)
+        self.collectionView.keyboardDismissMode = .onDrag
     }
     
     
@@ -45,17 +46,9 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
         playerPairs = PlayerController.shared.convertToPairs(array: players)
         self.collectionView.reloadData()
     }
-    
-    
-   
+
     
     //MARK: - CollectionView Data Source
-//    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return players.count
-//    }
-
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return playerPairs.count
     }
@@ -65,41 +58,22 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
            // let player = players[alteredIndexPath(indexPath: indexPath)]
             let players = playerPairs[indexPath.row]
         cell?.delegate = self
-        
-        
-        
         cell?.backgroundColor = .black
-        
-//        switch indexPath.section % 2 {
-//        case 0 :
-//            cell?.backgroundColor = .green
-//        case 1: cell?.backgroundColor = .blue
-//        default:
-//            cell?.backgroundColor = .yellow
-//        }
-        
-       
-        
-//        if let score = player.score {
-//            cell?.playerOneScoreTextField.isHidden = true
-//            cell?.scoreLabel.isHidden = false
-//
-//            print("🖖 \(score)")
-//            cell?.scoreLabel.text = "\(score)"
-//        }
-        
-    //    cell?.playersNameLabel.text = player.name
         cell?.playerOne = players[0]
         cell?.playerTwo = players[1]
-        
         return cell ?? UICollectionViewCell()
         }
 
     
+    @objc func postNotificationToSaveUserScore(){
+         NotificationCenter.default.post(name: NSNotification.Name(userPressedNextRoundButtonNotification), object: nil)
+    }
+    
+    
     //MARK: - Actions
     @IBAction func nextRoundButtonTapped(_ sender: Any) {
         
-        NotificationCenter.default.post(name: NSNotification.Name(userPressedNextRoundButtonNotification), object: nil)
+       postNotificationToSaveUserScore()
         
         for player in players {
             if player.score == nil {
@@ -107,40 +81,8 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
                 return
             }
         }
-        
-        let pairedPlayers = splitInPairs(array: players)
-        var winers = [Player]()
-        
-        if !pairedPlayers.isEmpty {
-            for pair in pairedPlayers {
-                
-                if let playerONeScore = pair[0].score, let playerTwoScore = pair[1].score,  !pair[0].passedThruThisRound,  !pair[1].passedThruThisRound {
-                    print("💙 Player one score \(playerONeScore),player two \(playerTwoScore)")
-                    if playerONeScore > playerTwoScore {
-                        pair[0].roundWinner = true
-                        let winerName = pair[0].name
-                        let player = Player(name: winerName, score: nil)
-                        winers.append(player)
-                        print("💙 appending \(player.name) to winners")
-                    } else if playerONeScore < playerTwoScore{
-                        pair[1].roundWinner = true
-                        let winerName = pair[1].name
-                        let player = Player(name: winerName, score: nil )
-                        winers.append(player)
-                        print("💙 appending \(player.name) to winners")
-                    } else if playerONeScore == playerTwoScore {
-                        showAlert(title: "Hola Hola", message: "You need to resolve that tie between \(pair[0].name) and  \(pair[1].name)")
-                        return
-                    }
-                }
-            }
-        }
-        
         players.forEach({ $0.passedThruThisRound = true})
-        for player in players{
-            print(player.passedThruThisRound)
-        }
-        
+
         guard let tournamentName = tournamentName, let round = round else {return}
         var nextRound = RoundName.invalid
         var background = UIColor.green
@@ -175,6 +117,7 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
             print("☢️next round set to: \(nextRound)")
         }
         
+        let winers = checkForwinners()
         if !winers.isEmpty {
             nextRnd = Round(round: nextRound, players: winers)
             tournamentName.round.append(nextRnd!)
@@ -210,11 +153,6 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
 
     
     //MARK: - Protocol Conformance Method
-    func assignPlayerScore(cell: TournamentCollectionViewCell, score: Int) {
-        guard let index = collectionView.indexPath(for: cell) else {return}
-        players[alteredIndexPath(indexPath: index)].score = score
-    }
-    
     func assignPlayerScore(cell: TournamentCollectionViewCell, score: Int, player: Player) {
         guard let index = collectionView.indexPath(for: cell) else {return}
         var players = playerPairs[index.row]
@@ -229,8 +167,56 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
             print("🚨 not player 2")
         }
         
-        
+        if let scoreOne = players[0].score, let scoreTwo = players[1].score {
+            if scoreOne > scoreTwo {
+                players[0].roundWinner = true
+            }
+            if scoreTwo > scoreOne {
+                players[1].roundWinner = true
+            }
+            if scoreOne == scoreTwo {
+                print("❌❌❌ its a tie")
+                     showAlert(title: "Hola Hola", message: "You need to resolve that tie between \(players[0].name) and  \(players[1].name)")
+            }
+        }
     }
+    
+    @objc func reloadCollectionView(){
+        self.collectionView.reloadData()
+    }
+
+    
+    func checkForwinners() -> [Player] {
+        let pairedPlayers = splitInPairs(array: players)
+        var winers = [Player]()
+        
+        if !pairedPlayers.isEmpty {
+            for pair in pairedPlayers {
+                
+                if let playerONeScore = pair[0].score, let playerTwoScore = pair[1].score,  !pair[0].passedThruThisRound,  !pair[1].passedThruThisRound {
+                    print("💙 Player one score \(playerONeScore),player two \(playerTwoScore)")
+                    if playerONeScore > playerTwoScore {
+                        pair[0].roundWinner = true
+                        let winerName = pair[0].name
+                        let player = Player(name: winerName, score: nil)
+                        winers.append(player)
+                        print("💙 appending \(player.name) to winners")
+                    } else if playerONeScore < playerTwoScore{
+                        pair[1].roundWinner = true
+                        let winerName = pair[1].name
+                        let player = Player(name: winerName, score: nil )
+                        winers.append(player)
+                        print("💙 appending \(player.name) to winners")
+                    } else if playerONeScore == playerTwoScore {
+                        showAlert(title: "Hola Hola", message: "You need to resolve that tie between \(pair[0].name) and  \(pair[1].name)")
+                        return []
+                    }
+                }
+            }
+        }
+        return winers
+    }
+    
     
     func alteredIndexPath(indexPath: IndexPath) -> Int {
         return (indexPath.section * 2) + (indexPath.row)

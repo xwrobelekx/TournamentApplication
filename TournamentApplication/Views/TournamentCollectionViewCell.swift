@@ -28,6 +28,7 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
             updateViews()
         }
     }
+    var userEnteredScoreNotofication = "userEnteredScoreNotofication"
     
     
     
@@ -64,7 +65,10 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     }
     
     @objc func runThisCodeToSaveMyScore(){
+        playerOneScoreTextField.resignFirstResponder()
+        playerTwoScoreLabel.resignFirstResponder()
         saveScoreforPlayer()
+        
     }
     
     
@@ -86,6 +90,9 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
         super.prepareForReuse()
         playerOneScoreTextField.text = ""
         playerTwoTextField.text = ""
+        playersNameLabel.textColor = .white
+        playerTwoScoreLabel.textColor = .white
+        
         
     }
     
@@ -110,12 +117,25 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
             
         }
         
+        updateViews()
+       // NotificationCenter.default.post(name: NSNotification.Name(rawValue: userEnteredScoreNotofication) , object: nil)
+        
     }
     
     func updateViews() {
         if let playerOne = playerOne, let playerTwo = playerTwo {
             playersNameLabel.text = playerOne.name
+            print("🎲\(playerOne.roundWinner)")
+            if playerOne.roundWinner == true{
+                playersNameLabel.textColor = UIColor.orange
+                print("🎲changed players color")
+            }
+            print("🎯\(playerTwo.roundWinner)")
             playerTwoNameLabel.text = playerTwo.name
+            if playerTwo.roundWinner == true {
+                playerTwoNameLabel.textColor = .orange
+                print("🎯changed players color")
+            }
             
             if let scoreOne = playerOne.score {
                 playerOneScoreTextField.isHidden = true
