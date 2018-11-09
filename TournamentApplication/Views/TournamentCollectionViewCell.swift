@@ -10,22 +10,43 @@ import UIKit
 
 
 protocol PlayerCollectionViewCellDelegate {
-    func assignPlayerScore(cell: TournamentCollectionViewCell, score: Int)
+    func assignPlayerScore(cell: TournamentCollectionViewCell, score: Int, player: Player)
 }
 
 class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     
-    var delegate: PlayerCollectionViewCellDelegate?
     
-    @IBOutlet weak var winnerLabel: UILabel!
+    //MARK: - Properties
+    var delegate: PlayerCollectionViewCellDelegate?
+    var playerOne: Player?{
+        didSet{
+            updateViews()
+        }
+    }
+    var playerTwo: Player?{
+        didSet{
+            updateViews()
+        }
+    }
+    
+    
+    
+    
+    
+    //MARK: - Outlets
     @IBOutlet weak var playersNameLabel: UILabel!
-    @IBOutlet weak var scoreTextField: UITextField!
+    @IBOutlet weak var playerOneScoreTextField: UITextField!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var playerTwoNameLabel: UILabel!
+    @IBOutlet weak var playerTwoTextField: UITextField!
+    @IBOutlet weak var playerTwoScoreLabel: UILabel!
+    
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        scoreTextField.delegate = self
+        playerOneScoreTextField.delegate = self
+        playerTwoTextField.delegate = self
         
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 9
@@ -38,39 +59,78 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        guard let score = scoreTextField.text, score != "" else {return false}
-        guard let intScore = Int(score) else {return false}
-        delegate?.assignPlayerScore(cell: self, score: intScore)
+        saveScoreforPlayer()
         return true
     }
     
     @objc func runThisCodeToSaveMyScore(){
-        guard let score = scoreTextField.text, score != "" else {return}
-        guard let intScore = Int(score) else {return}
-        delegate?.assignPlayerScore(cell: self, score: intScore)
+        saveScoreforPlayer()
     }
     
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let score = scoreTextField.text, score != "" else {return}
-        guard let intScore = Int(score) else {return}
-        delegate?.assignPlayerScore(cell: self, score: intScore)
+        saveScoreforPlayer()
     }
     
     //keyboard should return here but
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        scoreTextField.returnKeyType = .done
-        scoreTextField.resignFirstResponder()
-        
+        playerOneScoreTextField.returnKeyType = .done
+        playerTwoTextField.returnKeyType = .done
+        playerOneScoreTextField.resignFirstResponder()
+        playerTwoScoreLabel.resignFirstResponder()
         return true
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        scoreTextField.text = ""
+        playerOneScoreTextField.text = ""
+        playerTwoTextField.text = ""
         
+    }
+    
+    func saveScoreforPlayer(){
+//        guard let score = playerOneScoreTextField.text, score != "" else {return}
+//        guard let intScore = Int(score) else {return}
+//        delegate?.assignPlayerScore(cell: self, score: intScore)
+//
+        if let score = playerOneScoreTextField.text, score != "" {
+            guard let intScore = Int(score) else {return}
+            guard let player = playerOne else {return}
+            delegate?.assignPlayerScore(cell: self, score: intScore, player: player)
+            
+            
+        }
+        
+        if let scoreTwo = playerTwoTextField.text, scoreTwo != "" {
+             guard let intScore = Int(scoreTwo) else {return}
+             guard let player = playerTwo else {return}
+            delegate?.assignPlayerScore(cell: self, score: intScore, player: player)
+            
+            
+        }
+        
+    }
+    
+    func updateViews() {
+        if let playerOne = playerOne, let playerTwo = playerTwo {
+            playersNameLabel.text = playerOne.name
+            playerTwoNameLabel.text = playerTwo.name
+            
+            if let scoreOne = playerOne.score {
+                playerOneScoreTextField.isHidden = true
+                scoreLabel.isHidden = false
+                scoreLabel.text = "\(scoreOne)"
+            }
+            
+            if let scoreTwo = playerTwo.score {
+                playerTwoScoreLabel.isHidden = false
+                playerTwoTextField.isHidden = true
+                playerTwoScoreLabel.text = "\(scoreTwo)"
+                
+            }
+            
+        }
     }
     
     

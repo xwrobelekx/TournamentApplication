@@ -12,10 +12,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
   
     
-    
+    //MARK: - Outlets
     @IBOutlet weak var tournamentsTableView: UITableView!
     @IBOutlet weak var tournamentListTVHeightConstraint: NSLayoutConstraint!
     
+    
+    //MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         tournamentsTableView.delegate = self
@@ -53,13 +55,19 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         label.frame = CGRect(x: 15, y: 5, width: 200, height: 20)
         view.addSubview(label)
-       
         return view
-        
-        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .black
+        return view
     }
 
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return TournamentController.shared.tournaments.filter({!$0.isCompleted}).count

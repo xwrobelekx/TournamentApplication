@@ -44,9 +44,6 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
     
     
     //MARK: - Table View data source
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return "Group \(tableView.numberOfSections - section)"
-//    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return createTeam.count
@@ -69,6 +66,16 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
         return view
         
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .black
+        return view
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

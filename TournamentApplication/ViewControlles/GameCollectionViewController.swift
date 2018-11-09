@@ -11,15 +11,17 @@ import UIKit
 private let reuseIdentifier = "playersCell"
 
 class GameCollectionViewController: UICollectionViewController, PlayerCollectionViewCellDelegate {
+   
+    
   
     
-    
+    //MARK: - Properties
     var numberofSections: Int = 0
     var round : Round?
     var nextRnd: Round?
     var players = [Player]()
+    var playerPairs = [[Player]]()
     let userPressedNextRoundButtonNotification = "userPressedNextRoundButtonNotification"
-    
     var tournamentName : Tournament? {
         didSet{
             loadViewIfNeeded()
@@ -28,88 +30,68 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
     }
     
     
-
+    //MARK: LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
+      //  playerPairs = PlayerController.shared.convertToPairs(array: players)
     }
-    
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
         guard let curentRound = round else {return}
         print("🔥 \(curentRound.round.rawValue)")
         players = curentRound.players
+        playerPairs = PlayerController.shared.convertToPairs(array: players)
         self.collectionView.reloadData()
     }
     
     
+   
     
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
-    
-//    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        let header = collectionView.dequeueReusableSupplementaryView(ofKind: , withReuseIdentifier: <#T##String#>, for: indexPath)
-//        return header
+    //MARK: - CollectionView Data Source
+//    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return players.count
 //    }
-    
-
-    
-    
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return players.count/2
-    }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return playerPairs.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? TournamentCollectionViewCell
-            let player = players[alteredIndexPath(indexPath: indexPath)]
-        
+           // let player = players[alteredIndexPath(indexPath: indexPath)]
+            let players = playerPairs[indexPath.row]
         cell?.delegate = self
-        cell?.winnerLabel.text = ""
         
-        if player.roundWinner == true {
-            cell?.winnerLabel.text = "Winner"
-        }
         
-        switch indexPath.section % 2 {
-        case 0 :
-            cell?.backgroundColor = .green
-        case 1: cell?.backgroundColor = .blue
-        default:
-            cell?.backgroundColor = .yellow
-        }
+        
+        cell?.backgroundColor = .black
+        
+//        switch indexPath.section % 2 {
+//        case 0 :
+//            cell?.backgroundColor = .green
+//        case 1: cell?.backgroundColor = .blue
+//        default:
+//            cell?.backgroundColor = .yellow
+//        }
         
        
         
-        if let score = player.score {
-            cell?.scoreTextField.isHidden = true
-            cell?.scoreLabel.isHidden = false
-            
-            print("🖖 \(score)")
-            cell?.scoreLabel.text = "\(score)"
-        }
+//        if let score = player.score {
+//            cell?.playerOneScoreTextField.isHidden = true
+//            cell?.scoreLabel.isHidden = false
+//
+//            print("🖖 \(score)")
+//            cell?.scoreLabel.text = "\(score)"
+//        }
         
-        cell?.playersNameLabel.text = player.name
+    //    cell?.playersNameLabel.text = player.name
+        cell?.playerOne = players[0]
+        cell?.playerTwo = players[1]
+        
         return cell ?? UICollectionViewCell()
         }
 
@@ -224,18 +206,30 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
                 self.navigationController?.pushViewController(viewController, animated: true)
             }
         }
-        
-        
-        
     }
-    
-    
-    
+
     
     //MARK: - Protocol Conformance Method
     func assignPlayerScore(cell: TournamentCollectionViewCell, score: Int) {
         guard let index = collectionView.indexPath(for: cell) else {return}
         players[alteredIndexPath(indexPath: index)].score = score
+    }
+    
+    func assignPlayerScore(cell: TournamentCollectionViewCell, score: Int, player: Player) {
+        guard let index = collectionView.indexPath(for: cell) else {return}
+        var players = playerPairs[index.row]
+        if player.name == players[0].name {
+            players[0].score = score
+        } else {
+            print("🚨 not player 1")
+        }
+        if player.name == players[1].name {
+            players[1].score = score
+        } else {
+            print("🚨 not player 2")
+        }
+        
+        
     }
     
     func alteredIndexPath(indexPath: IndexPath) -> Int {
