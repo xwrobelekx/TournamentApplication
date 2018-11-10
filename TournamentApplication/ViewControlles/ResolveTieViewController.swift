@@ -78,6 +78,7 @@ class ResolveTieViewController: UIViewController {
         guard let playerOne = playerOne, let playerTwo = playerTwo else {return}
         playerOne.score = playerOneScore
         playerTwo.score = playerTwoScore
+     //    NotificationCenter.default.post(name: NSNotification.Name("userPressedNextRoundButtonNotification"), object: nil)
         navigationController?.popViewController(animated: true)
         
         //run the metod to check for winners

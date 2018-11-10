@@ -156,7 +156,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter score" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MOn-Rn-AiV">
-                                                    <rect key="frame" x="225.5" y="66" width="94.5" height="30"/>
+                                                    <rect key="frame" x="225.5" y="61" width="94.5" height="30"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -179,7 +179,7 @@
                                             <constraints>
                                                 <constraint firstItem="3ZP-l6-1Lc" firstAttribute="top" secondItem="rWE-Un-Jap" secondAttribute="bottom" constant="10" id="2zS-jt-3H9"/>
                                                 <constraint firstItem="rWE-Un-Jap" firstAttribute="centerX" secondItem="Bfs-Gk-I95" secondAttribute="centerX" constant="100" id="EtC-nh-Fhm"/>
-                                                <constraint firstItem="MOn-Rn-AiV" firstAttribute="top" secondItem="rWE-Un-Jap" secondAttribute="bottom" constant="15" id="Fdm-BV-dwV"/>
+                                                <constraint firstItem="MOn-Rn-AiV" firstAttribute="top" secondItem="rWE-Un-Jap" secondAttribute="bottom" constant="10" id="Fdm-BV-dwV"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Name)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97z-dL-Kiz">
@@ -189,7 +189,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter score" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mfb-II-rma">
-                                            <rect key="frame" x="33.5" y="94" width="94.5" height="30"/>
+                                            <rect key="frame" x="33.5" y="89" width="94.5" height="30"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -208,7 +208,7 @@
                                     <constraint firstItem="5Eq-PU-2Xg" firstAttribute="centerX" secondItem="r75-YZ-L0b" secondAttribute="centerX" id="1bY-er-maI"/>
                                     <constraint firstItem="mfb-II-rma" firstAttribute="centerX" secondItem="r75-YZ-L0b" secondAttribute="centerX" constant="-100" id="HyW-kG-jvV"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="Bfs-Gk-I95" secondAttribute="trailing" id="IB7-UW-uTO"/>
-                                    <constraint firstItem="mfb-II-rma" firstAttribute="top" secondItem="97z-dL-Kiz" secondAttribute="bottom" constant="15" id="Rkk-Q9-F7H"/>
+                                    <constraint firstItem="mfb-II-rma" firstAttribute="top" secondItem="97z-dL-Kiz" secondAttribute="bottom" constant="10" id="Rkk-Q9-F7H"/>
                                     <constraint firstItem="97z-dL-Kiz" firstAttribute="centerX" secondItem="r75-YZ-L0b" secondAttribute="centerX" constant="-100" id="SR1-U1-l6t"/>
                                     <constraint firstItem="Bfs-Gk-I95" firstAttribute="top" secondItem="r75-YZ-L0b" secondAttribute="topMargin" id="bjI-0Z-I3v"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="Bfs-Gk-I95" secondAttribute="bottom" id="cKA-K2-chA"/>
@@ -221,6 +221,7 @@
                                     <constraint firstItem="Bfs-Gk-I95" firstAttribute="leading" secondItem="r75-YZ-L0b" secondAttribute="leadingMargin" id="zTU-uI-BAo"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="middleLabel" destination="5Eq-PU-2Xg" id="evR-NA-m3A"/>
                                     <outlet property="playerOneScoreTextField" destination="mfb-II-rma" id="SSe-UT-sCT"/>
                                     <outlet property="playerTwoNameLabel" destination="rWE-Un-Jap" id="e18-nx-dci"/>
                                     <outlet property="playerTwoScoreLabel" destination="3ZP-l6-1Lc" id="RTy-UG-uaO"/>
@@ -264,7 +265,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7w-Pt-Jk4">
                                 <rect key="frame" x="143" y="397.5" width="89.5" height="45.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="38"/>
-                                <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="1" green="0.5802518202630137" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -468,10 +469,10 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xg2-qe-YHB" customClass="CustomViewWithRoundedCorners" customModule="TournamentApplication" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="10" width="345" height="60"/>
+                                                                    <rect key="frame" x="0.0" y="10" width="345" height="50"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3If-v5-Y1O">
-                                                                            <rect key="frame" x="10" y="19.5" width="42" height="21"/>
+                                                                            <rect key="frame" x="10" y="14.5" width="42" height="21"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
@@ -544,11 +545,15 @@
                     <size key="freeformSize" width="375" height="600"/>
                     <connections>
                         <outlet property="addPlayerStackViewOutlet" destination="Zpg-iQ-Re5" id="B4q-85-HHK"/>
+                        <outlet property="eightPlayersOutlet" destination="rpV-sn-QyI" id="Dcj-tV-p1e"/>
+                        <outlet property="fourPlayersOutlet" destination="kfl-yP-VYb" id="Huo-vX-ZWm"/>
                         <outlet property="playerNameTextField" destination="euH-h7-e8B" id="USA-Zc-kqv"/>
                         <outlet property="playerNameView" destination="PPh-QV-Fhm" id="QK0-sA-WQ5"/>
                         <outlet property="playersTableView" destination="oY2-4Q-EjP" id="CWj-Xm-2Ze"/>
                         <outlet property="scrollView" destination="dyH-O9-iIa" id="Nvk-MT-2vg"/>
+                        <outlet property="sixteenPlayerOutlet" destination="14U-SZ-fdl" id="0kr-LV-e2T"/>
                         <outlet property="tableViewHeightConstraint" destination="fBd-qf-pJr" id="hiV-PA-ljR"/>
+                        <outlet property="thirtyTwoPlayersOutlet" destination="Hbi-nB-SMS" id="8mw-CH-3Ij"/>
                         <outlet property="tournamentNameTextField" destination="faH-7X-cXC" id="XOX-aJ-WNf"/>
                     </connections>
                 </viewController>

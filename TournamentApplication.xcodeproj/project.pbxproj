@@ -28,6 +28,7 @@
 		3BECF05D2194DC8200EF7CF6 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BECF05C2194DC8200EF7CF6 /* RoundedButton.swift */; };
 		3BECF05F2194EDFE00EF7CF6 /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BECF05E2194EDFE00EF7CF6 /* PlayerController.swift */; };
 		3BECF06121953FDF00EF7CF6 /* ResolveTieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BECF06021953FDF00EF7CF6 /* ResolveTieViewController.swift */; };
+		3BECF0632196434400EF7CF6 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BECF0622196434400EF7CF6 /* UITextFieldExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		3BECF05C2194DC8200EF7CF6 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		3BECF05E2194EDFE00EF7CF6 /* PlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
 		3BECF06021953FDF00EF7CF6 /* ResolveTieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveTieViewController.swift; sourceTree = "<group>"; };
+		3BECF0622196434400EF7CF6 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +88,7 @@
 		3B2653732192160A0004CFE1 /* TournamentApplication */ = {
 			isa = PBXGroup;
 			children = (
-				3B26539C2192612A0004CFE1 /* Subclasses */,
+				3B26539C2192612A0004CFE1 /* SubclassesAndExtensions */,
 				3B26538B21921A600004CFE1 /* Models */,
 				3B26538A21921A570004CFE1 /* ModelController */,
 				3B26538921921A500004CFE1 /* Views */,
@@ -158,14 +160,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		3B26539C2192612A0004CFE1 /* Subclasses */ = {
+		3B26539C2192612A0004CFE1 /* SubclassesAndExtensions */ = {
 			isa = PBXGroup;
 			children = (
 				3B26539D2192614C0004CFE1 /* SelfSizingTableViews.swift */,
 				3B2653A5219295FA0004CFE1 /* CustomViewWithRoundedCorners.swift */,
 				3BECF05C2194DC8200EF7CF6 /* RoundedButton.swift */,
+				3BECF0622196434400EF7CF6 /* UITextFieldExtension.swift */,
 			);
-			path = Subclasses;
+			path = SubclassesAndExtensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +254,7 @@
 				3B2653A22192655D0004CFE1 /* GameCollectionViewController.swift in Sources */,
 				3B26539521921C2F0004CFE1 /* TournamentController.swift in Sources */,
 				3B2653752192160A0004CFE1 /* AppDelegate.swift in Sources */,
+				3BECF0632196434400EF7CF6 /* UITextFieldExtension.swift in Sources */,
 				3BECF05D2194DC8200EF7CF6 /* RoundedButton.swift in Sources */,
 				3B265399219233720004CFE1 /* TournamentCollectionViewCell.swift in Sources */,
 				3BECF05B2194BE5800EF7CF6 /* TournamentCustomTableViewCell.swift in Sources */,

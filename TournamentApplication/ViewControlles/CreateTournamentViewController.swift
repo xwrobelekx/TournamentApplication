@@ -10,12 +10,14 @@ import UIKit
 
 class CreateTournamentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
 
+    
     //MARK: - Properties
     var playerCount = 0
     var curentPlayerCount = 0
     var currentPlayers = [Player]()
     var createTeam = [[Player]]()
 
+    
     //MARK: - Outlets
     @IBOutlet weak var tournamentNameTextField: UITextField!
     @IBOutlet weak var playerNameTextField: UITextField!
@@ -26,25 +28,30 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
     @IBOutlet weak var addPlayerStackViewOutlet: UIStackView!
     
     
+    @IBOutlet weak var fourPlayersOutlet: customRoundedButtons!
+    @IBOutlet weak var eightPlayersOutlet: customRoundedButtons!
+    @IBOutlet weak var sixteenPlayerOutlet: customRoundedButtons!
+    @IBOutlet weak var thirtyTwoPlayersOutlet: customRoundedButtons!
+    var playersOutlets = [customRoundedButtons]()
+    
+    
+    
     //MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         playersTableView.delegate = self
         playersTableView.dataSource = self
         playersTableView.keyboardDismissMode = .onDrag
-       // playerNameView.isHidden = true
         addPlayerStackViewOutlet.isHidden = true
         playerNameTextField.delegate = self
         scrollView.keyboardDismissMode = .onDrag
         playersTableView.separatorStyle = .none
-        
         tableViewHeightConstraint.constant = playersTableView.contentSize.height
-        
+        playersOutlets = [fourPlayersOutlet, eightPlayersOutlet, sixteenPlayerOutlet, thirtyTwoPlayersOutlet]
     }
     
     
     //MARK: - Table View data source
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return createTeam.count
     }
@@ -52,7 +59,6 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 35
     }
-    
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = CustomViewWithRoundedCorners()
@@ -62,10 +68,7 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
         label.text = "Group \(tableView.numberOfSections - section):"
         label.frame = CGRect(x: 15, y: 5, width: 200, height: 20)
         view.addSubview(label)
-        
         return view
-        
-        
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -117,9 +120,6 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
     }
     
     
- 
-    
-    
     //MARK: - Actions
     @IBAction func rearangePlayersButtonTapped(_ sender: Any) {
         if !playersTableView.isEditing {
@@ -135,32 +135,37 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
     }
     
     @IBAction func fourPlayersButtonTapped(_ sender: Any) {
+        changeButtonsToOriginlState()
+        fourPlayersOutlet.layer.backgroundColor = #colorLiteral(red: 0, green: 0.5, blue: 0, alpha: 1)
         blockFromAddingMorePlayers(at: 4)
         unhideViews()
     }
     
     @IBAction func eightPlayersButtonTapped(_ sender: Any) {
+        changeButtonsToOriginlState()
+        eightPlayersOutlet.layer.backgroundColor = #colorLiteral(red: 0, green: 0.5, blue: 0, alpha: 1)
         blockFromAddingMorePlayers(at: 8)
         unhideViews()
 
     }
     
     @IBAction func sixteenPlayersButtonTapped(_ sender: Any) {
+        changeButtonsToOriginlState()
+        sixteenPlayerOutlet.layer.backgroundColor = #colorLiteral(red: 0, green: 0.5, blue: 0, alpha: 1)
         blockFromAddingMorePlayers(at: 16)
         unhideViews()
     }
     
     @IBAction func thirtytwoPlayersButtonTapped(_ sender: Any) {
+        changeButtonsToOriginlState()
+        thirtyTwoPlayersOutlet.layer.backgroundColor = #colorLiteral(red: 0, green: 0.5, blue: 0, alpha: 1)
         blockFromAddingMorePlayers(at: 32)
         unhideViews()
-
     }
-    
     
     @IBAction func addPlayerButtonTapped(_ sender: Any) {
         addPlayer()
     }
-    
     
     
     @IBAction func saveButtonTapped(_ sender: Any) {
@@ -206,21 +211,24 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
             round = Round(round: .invalid, players: currentPlayers)
         }
         
-        
         rounds.append(round)
         let tournament = Tournament(name: tournamentName, round: rounds)
         TournamentController.shared.addTournament(tournament: tournament)
         navigationController?.popViewController(animated: true)
-        
     }
     
     
+    
+    
+    //MARK: - Helper Methods
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         addPlayer()
-        
         return true
     }
     
+    func changeButtonsToOriginlState(){
+        playersOutlets.forEach({ $0.layer.backgroundColor = UIColor.orange.cgColor})
+    }
     
     func addPlayer(){
         guard let playerName = playerNameTextField.text else {return}
@@ -235,22 +243,19 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
             showAlert(title: "Cannot add Player", message: "this tab has to many players already, try picking a differend tab.")
             print("got enough players, curent count: \(playerCount),\n or need to enter a name for a player, curent player name: \(playerName).")
         }
-        
     }
     
-    
     func unhideViews(){
+        playerNameTextField.becomeFirstResponder()
         playersTableView.isHidden = false
         //playerNameView.isHidden = false
         addPlayerStackViewOutlet.isHidden = false
         loadViewIfNeeded()
     }
     
-    
     func modified(indexPath: IndexPath) -> Int {
         return (indexPath.section * 2) + (indexPath.row)
     }
-    
     
     func newIndex(indexPath: IndexPath) -> Int{
         if currentPlayers.count % 2 == 0{
@@ -266,7 +271,6 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
         }
     }
     
-    
     func showAlert(title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
@@ -275,13 +279,11 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
         present(alert, animated: true)
     }
     
-    
     func notEnoughPlayersAlert(){
         let alert = UIAlertController(title: "Not Enough Players", message: "Please add (number) more players.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alert, animated: true)
     }
-    
     
     func blockFromAddingMorePlayers(at number: Int){
         playerCount = number

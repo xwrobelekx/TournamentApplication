@@ -42,12 +42,15 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     @IBOutlet weak var playerTwoTextField: UITextField!
     @IBOutlet weak var playerTwoScoreLabel: UILabel!
     
+    @IBOutlet weak var middleLabel: UILabel!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         playerOneScoreTextField.delegate = self
         playerTwoTextField.delegate = self
+        playerOneScoreTextField.addDoneButtonOnKeyboard()
+        playerTwoTextField.addDoneButtonOnKeyboard()
         
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 9
@@ -60,6 +63,7 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        print("😱called textField SHOULD EndEditing in cell")
         saveScoreforPlayer()
         return true
     }
@@ -73,12 +77,14 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        print("😱called textField DID EndEditing in cell")
         saveScoreforPlayer()
     }
     
     //keyboard should return here but
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("😱called textField SHOULD RETURN in cell")
         playerOneScoreTextField.returnKeyType = .done
         playerTwoTextField.returnKeyType = .done
         playerOneScoreTextField.resignFirstResponder()
@@ -97,24 +103,16 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     }
     
     func saveScoreforPlayer(){
-//        guard let score = playerOneScoreTextField.text, score != "" else {return}
-//        guard let intScore = Int(score) else {return}
-//        delegate?.assignPlayerScore(cell: self, score: intScore)
-//
         if let score = playerOneScoreTextField.text, score != "" {
             guard let intScore = Int(score) else {return}
             guard let player = playerOne else {return}
-            delegate?.assignPlayerScore(cell: self, score: intScore, player: player)
-            
-            
+            player.score = intScore
         }
         
         if let scoreTwo = playerTwoTextField.text, scoreTwo != "" {
              guard let intScore = Int(scoreTwo) else {return}
              guard let player = playerTwo else {return}
-            delegate?.assignPlayerScore(cell: self, score: intScore, player: player)
-            
-            
+            player.score = intScore
         }
         
         updateViews()
@@ -123,19 +121,27 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     }
     
     func updateViews() {
+        middleLabel.text = "VS"
         if let playerOne = playerOne, let playerTwo = playerTwo {
+            
+            //assign winner if both playes has score already
+            if let playerOneScore = playerOne.score, let playerTwoScore = playerTwo.score {
+                if playerOneScore > playerTwoScore {
+                    playerOne.roundWinner = true
+                    playersNameLabel.textColor = UIColor.orange
+                }
+                if playerOneScore < playerTwoScore {
+                    playerTwo.roundWinner = true
+                    playerTwoNameLabel.textColor = .orange
+                }
+                if playerOneScore == playerTwoScore {
+                    middleLabel.text = "TIE"
+                }
+            }
+    
             playersNameLabel.text = playerOne.name
-            print("🎲\(playerOne.roundWinner)")
-            if playerOne.roundWinner == true{
-                playersNameLabel.textColor = UIColor.orange
-                print("🎲changed players color")
-            }
-            print("🎯\(playerTwo.roundWinner)")
             playerTwoNameLabel.text = playerTwo.name
-            if playerTwo.roundWinner == true {
-                playerTwoNameLabel.textColor = .orange
-                print("🎯changed players color")
-            }
+
             
             if let scoreOne = playerOne.score {
                 playerOneScoreTextField.isHidden = true
@@ -152,9 +158,7 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
             
         }
     }
-    
-    
-    
-    
-    
+
 }
+
+

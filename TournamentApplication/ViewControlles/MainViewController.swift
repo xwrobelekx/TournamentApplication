@@ -11,7 +11,6 @@ import UIKit
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    
     //MARK: - Outlets
     @IBOutlet weak var tournamentsTableView: UITableView!
     @IBOutlet weak var tournamentListTVHeightConstraint: NSLayoutConstraint!
@@ -26,7 +25,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         navigationController?.navigationBar.prefersLargeTitles = true
         hideShowInfoLabel()
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -44,7 +42,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 35
     }
-    
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = CustomViewWithRoundedCorners()
@@ -96,7 +93,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell ?? UITableViewCell()
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tournament : Tournament?
         
@@ -130,6 +126,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
+    //MARK: - Helper Method
     func hideShowInfoLabel(){
         infoLabel.isHidden = true
         tournamentsTableView.isHidden = false
