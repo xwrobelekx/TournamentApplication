@@ -88,6 +88,7 @@
 		3B2653732192160A0004CFE1 /* TournamentApplication */ = {
 			isa = PBXGroup;
 			children = (
+				3B34466C2196D16700205BEB /* CoreData */,
 				3B26539C2192612A0004CFE1 /* SubclassesAndExtensions */,
 				3B26538B21921A600004CFE1 /* Models */,
 				3B26538A21921A570004CFE1 /* ModelController */,
@@ -169,6 +170,13 @@
 				3BECF0622196434400EF7CF6 /* UITextFieldExtension.swift */,
 			);
 			path = SubclassesAndExtensions;
+			sourceTree = "<group>";
+		};
+		3B34466C2196D16700205BEB /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

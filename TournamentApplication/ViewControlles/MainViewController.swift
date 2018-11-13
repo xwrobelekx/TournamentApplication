@@ -24,6 +24,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         tournamentsTableView.dataSource = self
         navigationController?.navigationBar.prefersLargeTitles = true
         hideShowInfoLabel()
+        tournamentsTableView.reloadData()
+        tournamentListTVHeightConstraint.constant = tournamentsTableView.contentSize.height
     }
     
     override func viewWillAppear(_ animated: Bool) {

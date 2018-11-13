@@ -17,22 +17,13 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     
     
     //MARK: - Properties
-    var delegate: PlayerCollectionViewCellDelegate?
-    var playerOne: Player?{
+    var currentPlayers : [Player]? {
         didSet{
-            updateViews()
+            saveScoreforPlayer()
         }
     }
-    var playerTwo: Player?{
-        didSet{
-            updateViews()
-        }
-    }
+    
     var userEnteredScoreNotofication = "userEnteredScoreNotofication"
-    
-    
-    
-    
     
     //MARK: - Outlets
     @IBOutlet weak var playersNameLabel: UILabel!
@@ -41,10 +32,10 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     @IBOutlet weak var playerTwoNameLabel: UILabel!
     @IBOutlet weak var playerTwoTextField: UITextField!
     @IBOutlet weak var playerTwoScoreLabel: UILabel!
-    
     @IBOutlet weak var middleLabel: UILabel!
     
     
+    //MARK: - LifeCycle Method
     override func awakeFromNib() {
         super.awakeFromNib()
         playerOneScoreTextField.delegate = self
@@ -62,15 +53,10 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name("userPressedNextRoundButtonNotification"), object: self)
     }
     
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        print("😱called textField SHOULD EndEditing in cell")
-        saveScoreforPlayer()
-        return true
-    }
     
     @objc func runThisCodeToSaveMyScore(){
         playerOneScoreTextField.resignFirstResponder()
-        playerTwoScoreLabel.resignFirstResponder()
+        playerTwoTextField.resignFirstResponder()
         saveScoreforPlayer()
         
     }
@@ -81,84 +67,126 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
         saveScoreforPlayer()
     }
     
-    //keyboard should return here but
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("😱called textField SHOULD RETURN in cell")
-        playerOneScoreTextField.returnKeyType = .done
-        playerTwoTextField.returnKeyType = .done
-        playerOneScoreTextField.resignFirstResponder()
-        playerTwoScoreLabel.resignFirstResponder()
-        return true
-    }
     
     override func prepareForReuse() {
-        super.prepareForReuse()
+        
         playerOneScoreTextField.text = ""
         playerTwoTextField.text = ""
         playersNameLabel.textColor = .white
+        playerOneScoreTextField.textColor = .white
+        playerTwoNameLabel.textColor = .white
         playerTwoScoreLabel.textColor = .white
-        
+        playerTwoScoreLabel.text = nil
+        scoreLabel.text = nil
+        scoreLabel.isHidden = true
+        playerTwoScoreLabel.isHidden = true
+        playerOneScoreTextField.isHidden = false
+        playerTwoTextField.isHidden = false
+        print("reused the cell")
         
     }
     
     func saveScoreforPlayer(){
-        if let score = playerOneScoreTextField.text, score != "" {
-            guard let intScore = Int(score) else {return}
-            guard let player = playerOne else {return}
-            player.score = intScore
+        print("🐢 SAVE SCORE METHOD IS BEING CALLED")
+        //check if we have both players
+        guard let currentPlayers = currentPlayers else {return}
+        let playerOne = currentPlayers[0]
+        let playerTwo = currentPlayers[1]
+        
+        // check is we have score inputed, and assigns it to the first player
+        if let scoreOne = playerOneScoreTextField.text, scoreOne != "" {
+            guard let intScore = Int(scoreOne) else {return}
+            playerOne.score = intScore
         }
         
+        //check if we have score in second textfield, and assigns it to player two
         if let scoreTwo = playerTwoTextField.text, scoreTwo != "" {
-             guard let intScore = Int(scoreTwo) else {return}
-             guard let player = playerTwo else {return}
-            player.score = intScore
+            guard let intScore = Int(scoreTwo) else {return}
+            playerTwo.score = intScore
         }
         
-        updateViews()
-       // NotificationCenter.default.post(name: NSNotification.Name(rawValue: userEnteredScoreNotofication) , object: nil)
-        
+        //checks if both players have score and assign a winning player
+        if let scoreOne = playerOne.score, let scoreTwo = playerTwo.score {
+            
+            if scoreOne > scoreTwo {
+                playerOne.roundWinner = true
+                playerTwo.roundWinner = false
+            } else if scoreOne < scoreTwo {
+                playerTwo.roundWinner = true
+                playerOne.roundWinner = false
+            }
+        }
+        updateViews()        
     }
+    
+    
+    
     
     func updateViews() {
         middleLabel.text = "VS"
-        if let playerOne = playerOne, let playerTwo = playerTwo {
+        
+        guard let currentPlayers = currentPlayers else {return}
+        
+        //checks if we have both players
+        let playerOne = currentPlayers[0]
+        let playerTwo = currentPlayers[1]
+        
+        print("curent players: 1: \(playerOne.name), 2: \(playerTwo.name)")
+        
+        //it assigns players name to the label
+        playersNameLabel.text = playerOne.name
+        playerTwoNameLabel.text = playerTwo.name
+        
+        
+        //asigns scores to player one label if it hapens to have them
+        if let scoreOne = playerOne.score {
+            playerOneScoreTextField.isHidden = true
+            scoreLabel.isHidden = false
+            scoreLabel.text = "\(scoreOne)"
+        }
+        
+        //asigns scores to player two label if it happens to have them
+        if let scoreTwo = playerTwo.score {
+            playerTwoTextField.isHidden = true
+            playerTwoScoreLabel.isHidden = false
+            playerTwoScoreLabel.text = "\(scoreTwo)"
+        }
+        
+        
+        
+        
+        //checks if we have both players scores
+        if let scoreOne = playerOne.score, let scoreTwo = playerTwo.score {
             
-            //assign winner if both playes has score already
-            if let playerOneScore = playerOne.score, let playerTwoScore = playerTwo.score {
-                if playerOneScore > playerTwoScore {
-                    playerOne.roundWinner = true
-                    playersNameLabel.textColor = UIColor.orange
-                }
-                if playerOneScore < playerTwoScore {
-                    playerTwo.roundWinner = true
-                    playerTwoNameLabel.textColor = .orange
-                }
-                if playerOneScore == playerTwoScore {
-                    middleLabel.text = "TIE"
-                }
+            //checks for tie
+            if scoreOne == scoreTwo {
+                middleLabel.text = "TIE"
+                playerOne.roundWinner = false
+                playerTwo.roundWinner = false
+                
+                playersNameLabel.textColor = .white
+                scoreLabel.textColor = .white
+                playerTwoScoreLabel.textColor = .white
+                playerTwoNameLabel.textColor = .white
             }
-    
-            playersNameLabel.text = playerOne.name
-            playerTwoNameLabel.text = playerTwo.name
-
             
-            if let scoreOne = playerOne.score {
-                playerOneScoreTextField.isHidden = true
-                scoreLabel.isHidden = false
-                scoreLabel.text = "\(scoreOne)"
-            }
-            
-            if let scoreTwo = playerTwo.score {
-                playerTwoScoreLabel.isHidden = false
-                playerTwoTextField.isHidden = true
-                playerTwoScoreLabel.text = "\(scoreTwo)"
+            //if player one is the winner of the round make the label orange
+            if playerOne.roundWinner == true {
+                playersNameLabel.textColor = .orange
+                scoreLabel.textColor = .orange
+                playerTwoScoreLabel.textColor = .white
+                playerTwoNameLabel.textColor = .white
+                
+                //if player two is the winner make the label orange
+            } else if playerTwo.roundWinner == true {
+                playerTwoScoreLabel.textColor = .orange
+                playerTwoNameLabel.textColor = .orange
+                playersNameLabel.textColor = .white
+                scoreLabel.textColor = .white
                 
             }
-            
         }
     }
-
 }
 
 

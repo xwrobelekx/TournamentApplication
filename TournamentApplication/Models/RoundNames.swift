@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum RoundName : String {
+enum RoundName : String, Codable {
     case roundOfSixteen = "RoundOfSixteen"  // 32 players
     case roundOfEight = "RoundOfEight"      // 16 players
     case quarterFinal = "QuarterFinal"      // 8 players

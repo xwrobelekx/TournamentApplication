@@ -12,18 +12,8 @@ class ResolveTieViewController: UIViewController {
 
     
     //MARK: - Properties
-    var playerOne: Player? {
-        didSet{
-            loadViewIfNeeded()
-            updateViews()
-        }
-    }
-    var playerTwo: Player? {
-        didSet {
-            loadViewIfNeeded()
-            updateViews()
-        }
-    }
+    var playerOne: Player?
+    var playerTwo: Player?
     
     var playerOneScore = 0
     var playerTwoScore = 0
@@ -77,12 +67,8 @@ class ResolveTieViewController: UIViewController {
         //save the score
         guard let playerOne = playerOne, let playerTwo = playerTwo else {return}
         playerOne.score = playerOneScore
-        playerTwo.score = playerTwoScore
-     //    NotificationCenter.default.post(name: NSNotification.Name("userPressedNextRoundButtonNotification"), object: nil)
+        playerTwo.score = playerTwoScore        
         navigationController?.popViewController(animated: true)
-        
-        //run the metod to check for winners
-        
     }
     
     

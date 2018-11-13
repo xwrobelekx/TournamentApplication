@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Tournament {
+class Tournament: Codable {
     
     var name: String
     var round: [Round]

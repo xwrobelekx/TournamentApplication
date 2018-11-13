@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Round: Equatable {
+class Round: Equatable, Codable {
     
     var round: RoundName
     var players: [Player]
@@ -25,3 +25,6 @@ class Round: Equatable {
         return true
     }
 }
+
+
+
