@@ -10,7 +10,7 @@ import UIKit
 
 
 protocol PlayerCollectionViewCellDelegate {
-    func assignPlayerScore(cell: TournamentCollectionViewCell, score: Int, player: Player)
+    func callAlertForInvalidNumber(playersName: String)
 }
 
 class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
@@ -23,6 +23,7 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
         }
     }
     
+    var delegate : PlayerCollectionViewCellDelegate?
     var userEnteredScoreNotofication = "userEnteredScoreNotofication"
     
     //MARK: - Outlets
@@ -58,18 +59,15 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
         playerOneScoreTextField.resignFirstResponder()
         playerTwoTextField.resignFirstResponder()
         saveScoreforPlayer()
-        
     }
     
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("😱called textField DID EndEditing in cell")
         saveScoreforPlayer()
     }
     
     
     override func prepareForReuse() {
-        
         playerOneScoreTextField.text = ""
         playerTwoTextField.text = ""
         playersNameLabel.textColor = .white
@@ -82,12 +80,10 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
         playerTwoScoreLabel.isHidden = true
         playerOneScoreTextField.isHidden = false
         playerTwoTextField.isHidden = false
-        print("reused the cell")
         
     }
     
     func saveScoreforPlayer(){
-        print("🐢 SAVE SCORE METHOD IS BEING CALLED")
         //check if we have both players
         guard let currentPlayers = currentPlayers else {return}
         let playerOne = currentPlayers[0]
@@ -95,13 +91,17 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
         
         // check is we have score inputed, and assigns it to the first player
         if let scoreOne = playerOneScoreTextField.text, scoreOne != "" {
-            guard let intScore = Int(scoreOne) else {return}
+            guard let intScore = Int(scoreOne) else {
+                delegate?.callAlertForInvalidNumber(playersName: playerOne.name)
+                return}
             playerOne.score = intScore
         }
         
         //check if we have score in second textfield, and assigns it to player two
         if let scoreTwo = playerTwoTextField.text, scoreTwo != "" {
-            guard let intScore = Int(scoreTwo) else {return}
+            guard let intScore = Int(scoreTwo) else {
+                delegate?.callAlertForInvalidNumber(playersName: playerTwo.name)
+                return}
             playerTwo.score = intScore
         }
         
@@ -131,12 +131,9 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
         let playerOne = currentPlayers[0]
         let playerTwo = currentPlayers[1]
         
-        print("curent players: 1: \(playerOne.name), 2: \(playerTwo.name)")
-        
         //it assigns players name to the label
         playersNameLabel.text = playerOne.name
         playerTwoNameLabel.text = playerTwo.name
-        
         
         //asigns scores to player one label if it hapens to have them
         if let scoreOne = playerOne.score {

@@ -178,10 +178,12 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
             showAlert(title: "Missing Tournament Name", message: "Please add a tournament name.")
             return}
         
-        
-        if currentPlayers.count != playerCount {
-            notEnoughPlayersAlert()
+      
+        if currentPlayers.count < playerCount {
+            notEnoughPlayersAlert(howManyMorePlayers: playerCount - currentPlayers.count)
             return
+        } else if currentPlayers.count > playerCount {
+            showAlert(title: "To many players", message: "Please select a larger amount of players")
         }
         
         //here we would assign our local array to main dictionary inder curent turnament name
@@ -244,15 +246,13 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
             curentPlayerCount += 1
             tableViewHeightConstraint.constant = playersTableView.contentSize.height + 10
         } else {
-            showAlert(title: "Cannot add Player", message: "this tab has to many players already, try picking a differend tab.")
-            print("got enough players, curent count: \(playerCount),\n or need to enter a name for a player, curent player name: \(playerName).")
+            showAlert(title: "To Many Players", message: "This tab has to many players already, try picking a differend tab.")
         }
     }
     
     func unhideViews(){
         playerNameTextField.becomeFirstResponder()
         playersTableView.isHidden = false
-        //playerNameView.isHidden = false
         addPlayerStackViewOutlet.isHidden = false
         loadViewIfNeeded()
     }
@@ -283,8 +283,8 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
         present(alert, animated: true)
     }
     
-    func notEnoughPlayersAlert(){
-        let alert = UIAlertController(title: "Not Enough Players", message: "Please add (number) more players.", preferredStyle: .alert)
+    func notEnoughPlayersAlert(howManyMorePlayers: Int){
+        let alert = UIAlertController(title: "Not Enough Players", message: "Please add \(howManyMorePlayers) more players.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alert, animated: true)
     }
@@ -295,7 +295,7 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
             curentPlayerCount = currentPlayers.count
         } else if currentPlayers.count >= number {
             curentPlayerCount = currentPlayers.count
-            showAlert(title: "Cannot add Player", message: "this tab has to many players already, try picking a differend tab.")
+            showAlert(title: "To Many Players", message: "This tab has to many players already, try picking a differend tab.")
         } else {
             playerCount = number
         }

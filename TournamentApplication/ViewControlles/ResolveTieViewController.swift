@@ -34,6 +34,7 @@ class ResolveTieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = "Game Time"
+        titleLabel.textColor = #colorLiteral(red: 0, green: 1, blue: 0.07182494551, alpha: 1)
         playerOneOldScore.isHidden = true
         playerTwoOldScore.isHidden = true
         playerOneNewScore.text = "0"
@@ -52,11 +53,12 @@ class ResolveTieViewController: UIViewController {
         if let scoreOne = playerOne.score, let scoreTwo = playerTwo.score {
             if scoreOne == scoreTwo {
                 titleLabel.text = "Resolve Tie"
+                titleLabel.textColor = .orange
             }
             playerOneOldScore.isHidden = false
             playerTwoOldScore.isHidden = false
-            playerOneOldScore.text = "Previous Score: \n\(scoreOne)"
-            playerTwoOldScore.text = "Previous Score: \n\(scoreTwo)"
+            playerOneOldScore.text = "\(scoreOne)"
+            playerTwoOldScore.text = "\(scoreTwo)"
         }
     }
     

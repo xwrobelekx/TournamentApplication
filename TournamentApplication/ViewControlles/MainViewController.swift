@@ -129,7 +129,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             if indexPath.section == 0 {
                 tournament = TournamentController.shared.tournaments.filter({!$0.isCompleted})[indexPath.row]
             } else if indexPath.section == 1 {
-                tournament = TournamentController.shared.tournaments.filter({!$0.isCompleted})[indexPath.row]
+                tournament = TournamentController.shared.tournaments.filter({$0.isCompleted})[indexPath.row]
             }
             guard let tournamentToDelete = tournament else {return}
             TournamentController.shared.delete(tournament: tournamentToDelete)

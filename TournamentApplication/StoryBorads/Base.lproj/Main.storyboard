@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fl7-gl-aO7">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,27 +15,27 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="TournamentApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SVd-EB-umR">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pte-pD-jcn" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pxa-Ll-gNG" customClass="SelfSizedTableView" customModule="TournamentApplication" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="20" width="345" height="100"/>
+                                                <rect key="frame" x="15" y="20" width="384" height="100"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="qAX-lQ-4xu"/>
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tournamentCell" rowHeight="70" id="gnJ-yF-lmT" customClass="TournamentCustomTableViewCell" customModule="TournamentApplication" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="345" height="70"/>
+                                                        <rect key="frame" x="0.0" y="28" width="384" height="70"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gnJ-yF-lmT" id="yg5-dK-8bR">
-                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="70"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="384" height="70"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uR-AD-R8C" customClass="CustomViewWithRoundedCorners" customModule="TournamentApplication" customModuleProvider="target">
@@ -71,7 +71,7 @@
                                                 <sections/>
                                             </tableView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the &quot;+&quot; to create new tournament" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7co-YE-Uv2">
-                                                <rect key="frame" x="30.5" y="291" width="314.5" height="21.5"/>
+                                                <rect key="frame" x="50" y="325.33333333333331" width="314.33333333333331" height="21.666666666666686"/>
                                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -110,6 +110,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tournaments" largeTitleDisplayMode="always" id="Tlu-3G-MxR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="BMi-Z8-UOu">
+                            <color key="tintColor" red="0.94258779290000005" green="0.59706002469999997" blue="0.21567067500000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="f62-K8-D4M" kind="show" id="Ysu-YZ-gp2"/>
                             </connections>
@@ -130,7 +131,7 @@
             <objects>
                 <collectionViewController storyboardIdentifier="GameCVC" id="FJH-cL-3P6" customClass="GameCollectionViewController" customModule="TournamentApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="hvo-lH-gfl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fGG-wH-1bE">
@@ -141,7 +142,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="playersCell" id="r75-YZ-L0b" customClass="TournamentCollectionViewCell" customModule="TournamentApplication" customModuleProvider="target">
-                                <rect key="frame" x="7" y="0.0" width="361" height="134"/>
+                                <rect key="frame" x="26.666666666666668" y="0.0" width="361" height="134"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="361" height="134"/>
@@ -151,26 +152,35 @@
                                             <rect key="frame" x="8" y="28" width="345" height="98"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Name)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWE-Un-Jap">
-                                                    <rect key="frame" x="237" y="27" width="71" height="24"/>
+                                                    <rect key="frame" x="205" y="27" width="135" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="135" id="sHK-pu-uAe"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter score" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MOn-Rn-AiV">
-                                                    <rect key="frame" x="225.5" y="61" width="94.5" height="30"/>
+                                                    <rect key="frame" x="222.66666666666663" y="61" width="100" height="30"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="Zx8-ou-Elo"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ZP-l6-1Lc">
-                                                    <rect key="frame" x="240.5" y="61" width="64" height="30"/>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ZP-l6-1Lc">
+                                                    <rect key="frame" x="222.66666666666663" y="61" width="100" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="WFi-LC-gCr"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Eq-PU-2Xg">
-                                                    <rect key="frame" x="145" y="9" width="55.5" height="60"/>
+                                                    <rect key="frame" x="144.66666666666666" y="9" width="56" height="60"/>
                                                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="55"/>
                                                     <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -184,20 +194,29 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Name)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97z-dL-Kiz">
-                                            <rect key="frame" x="45" y="55" width="71" height="24"/>
+                                            <rect key="frame" x="13" y="55" width="135" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="135" id="zgR-14-vxd"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter score" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mfb-II-rma">
-                                            <rect key="frame" x="33.5" y="89" width="94.5" height="30"/>
+                                            <rect key="frame" x="30.666666666666671" y="89" width="100.00000000000001" height="30"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="jpb-uI-ya8"/>
+                                            </constraints>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
                                         </textField>
-                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zX9-sH-mYx">
-                                            <rect key="frame" x="48.5" y="89" width="64" height="30"/>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zX9-sH-mYx">
+                                            <rect key="frame" x="30.666666666666671" y="89" width="100.00000000000001" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="fHM-sX-MAn"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -254,38 +273,44 @@
             <objects>
                 <viewController storyboardIdentifier="championVC" id="7mY-za-194" customClass="ChampionViewController" customModule="TournamentApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eX1-5A-RNg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Champion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sm6-8L-WYW">
-                                <rect key="frame" x="29" y="290" width="317.5" height="87.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="73"/>
+                                <rect key="frame" x="85" y="234.66666666666663" width="244" height="67"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="62"/>
                                 <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7w-Pt-Jk4">
-                                <rect key="frame" x="143" y="397.5" width="89.5" height="45.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
-                                <color key="textColor" red="1" green="0.5802518202630137" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7w-Pt-Jk4">
+                                <rect key="frame" x="0.0" y="321.66666666666669" width="414" height="74"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="68"/>
+                                <color key="textColor" red="0.1078908177" green="0.99215686270000003" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScD-TV-r3U" customClass="customRoundedButtons" customModule="TournamentApplication" customModuleProvider="target">
+                                <rect key="frame" x="103.66666666666669" y="657" width="207" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Home"/>
+                                <connections>
+                                    <action selector="homeButtonPressed:" destination="7mY-za-194" eventType="touchUpInside" id="naD-Gd-Vgc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Sm6-8L-WYW" firstAttribute="centerY" secondItem="eX1-5A-RNg" secondAttribute="centerY" id="CIi-am-3Vh"/>
+                            <constraint firstItem="Sm6-8L-WYW" firstAttribute="centerY" secondItem="eX1-5A-RNg" secondAttribute="centerY" constant="-100" id="CIi-am-3Vh"/>
+                            <constraint firstItem="b7w-Pt-Jk4" firstAttribute="width" secondItem="eX1-5A-RNg" secondAttribute="width" id="CxS-ZM-ITa"/>
                             <constraint firstItem="b7w-Pt-Jk4" firstAttribute="top" secondItem="Sm6-8L-WYW" secondAttribute="bottom" constant="20" id="G2r-py-lpP"/>
                             <constraint firstItem="Sm6-8L-WYW" firstAttribute="centerX" secondItem="eX1-5A-RNg" secondAttribute="centerX" id="LQo-Iw-4eB"/>
+                            <constraint firstItem="z6U-cs-kle" firstAttribute="bottom" secondItem="ScD-TV-r3U" secondAttribute="bottom" constant="40" id="YID-mY-QfC"/>
+                            <constraint firstItem="ScD-TV-r3U" firstAttribute="centerX" secondItem="eX1-5A-RNg" secondAttribute="centerX" id="gTq-8u-gD8"/>
                             <constraint firstItem="b7w-Pt-Jk4" firstAttribute="centerX" secondItem="eX1-5A-RNg" secondAttribute="centerX" id="wPA-aM-NUj"/>
+                            <constraint firstItem="ScD-TV-r3U" firstAttribute="width" secondItem="eX1-5A-RNg" secondAttribute="width" multiplier="0.5" id="wPl-Od-rLe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="z6U-cs-kle"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Champion" id="pnH-l9-mlR">
-                        <barButtonItem key="rightBarButtonItem" title="Home" id="qTW-0B-1F7">
-                            <connections>
-                                <action selector="homeButtonTapped:" destination="7mY-za-194" id="qT9-01-oM5"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Champion" id="pnH-l9-mlR"/>
                     <connections>
                         <outlet property="championNameLabel" destination="b7w-Pt-Jk4" id="XvG-cP-b55"/>
                     </connections>
@@ -306,16 +331,16 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="536"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A2N-ZE-IfB">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="408"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="426"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qqv-Ah-ajg">
-                                                <rect key="frame" x="15" y="15" width="345" height="112"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qqv-Ah-ajg">
+                                                <rect key="frame" x="15" y="15" width="345" height="130"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="axN-CY-zGm" customClass="CustomViewWithRoundedCorners" customModule="TournamentApplication" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="52"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="48"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Tournament Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="faH-7X-cXC">
-                                                                <rect key="frame" x="8" y="11" width="329" height="30"/>
+                                                                <rect key="frame" x="8" y="8" width="329" height="32"/>
                                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -327,70 +352,91 @@
                                                             <constraint firstItem="faH-7X-cXC" firstAttribute="centerX" secondItem="axN-CY-zGm" secondAttribute="centerX" id="4cC-a1-9d0"/>
                                                             <constraint firstItem="faH-7X-cXC" firstAttribute="centerY" secondItem="axN-CY-zGm" secondAttribute="centerY" id="7FU-NX-Cak"/>
                                                             <constraint firstAttribute="trailing" secondItem="faH-7X-cXC" secondAttribute="trailing" constant="8" id="MlB-fK-chs"/>
+                                                            <constraint firstItem="faH-7X-cXC" firstAttribute="top" secondItem="axN-CY-zGm" secondAttribute="top" constant="8" id="PQo-Gg-vxQ"/>
+                                                            <constraint firstAttribute="bottom" secondItem="faH-7X-cXC" secondAttribute="bottom" constant="8" id="c9G-Qh-OPU"/>
                                                             <constraint firstItem="faH-7X-cXC" firstAttribute="leading" secondItem="axN-CY-zGm" secondAttribute="leading" constant="8" id="sDG-cN-1a4"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hTf-Sc-7ek" customClass="CustomViewWithRoundedCorners" customModule="TournamentApplication" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="60" width="345" height="52"/>
+                                                        <rect key="frame" x="0.0" y="56" width="345" height="74"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="REY-2i-ayh">
-                                                                <rect key="frame" x="8" y="11" width="329" height="30"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="CWP-qa-3K9">
+                                                                <rect key="frame" x="8" y="8" width="329" height="58"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfl-yP-VYb" customClass="customRoundedButtons" customModule="TournamentApplication" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="73.5" height="30"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                        <state key="normal" title="4 Players">
-                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        </state>
-                                                                        <connections>
-                                                                            <action selector="fourPlayersButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="sPY-bk-7S3"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rpV-sn-QyI" customClass="customRoundedButtons" customModule="TournamentApplication" customModuleProvider="target">
-                                                                        <rect key="frame" x="85.5" y="0.0" width="73" height="30"/>
-                                                                        <state key="normal" title="8 Players">
-                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        </state>
-                                                                        <connections>
-                                                                            <action selector="eightPlayersButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="mWN-po-uBE"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14U-SZ-fdl" customClass="customRoundedButtons" customModule="TournamentApplication" customModuleProvider="target">
-                                                                        <rect key="frame" x="170.5" y="0.0" width="73.5" height="30"/>
-                                                                        <state key="normal" title="16 Players">
-                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        </state>
-                                                                        <connections>
-                                                                            <action selector="sixteenPlayersButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="ePE-l9-i7o"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hbi-nB-SMS" customClass="customRoundedButtons" customModule="TournamentApplication" customModuleProvider="target">
-                                                                        <rect key="frame" x="256" y="0.0" width="73" height="30"/>
-                                                                        <state key="normal" title="32 Players">
-                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        </state>
-                                                                        <connections>
-                                                                            <action selector="thirtytwoPlayersButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="pyc-nM-B7C"/>
-                                                                        </connections>
-                                                                    </button>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the amout of players:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5va-i8-zgF">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="329" height="25.666666666666668"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="REY-2i-ayh">
+                                                                        <rect key="frame" x="0.0" y="32.666666666666657" width="329" height="25.333333333333329"/>
+                                                                        <subviews>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfl-yP-VYb" customClass="customRoundedButtons" customModule="TournamentApplication" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="67.333333333333329" height="25.333333333333332"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                                <state key="normal" title="4">
+                                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                </state>
+                                                                                <connections>
+                                                                                    <action selector="fourPlayersButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="sPY-bk-7S3"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rpV-sn-QyI" customClass="customRoundedButtons" customModule="TournamentApplication" customModuleProvider="target">
+                                                                                <rect key="frame" x="87.333333333333343" y="0.0" width="67.333333333333343" height="25.333333333333332"/>
+                                                                                <state key="normal" title="8">
+                                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                </state>
+                                                                                <connections>
+                                                                                    <action selector="eightPlayersButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="mWN-po-uBE"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14U-SZ-fdl" customClass="customRoundedButtons" customModule="TournamentApplication" customModuleProvider="target">
+                                                                                <rect key="frame" x="174.66666666666666" y="0.0" width="67" height="25.333333333333332"/>
+                                                                                <state key="normal" title="16">
+                                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                </state>
+                                                                                <connections>
+                                                                                    <action selector="sixteenPlayersButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="ePE-l9-i7o"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hbi-nB-SMS" customClass="customRoundedButtons" customModule="TournamentApplication" customModuleProvider="target">
+                                                                                <rect key="frame" x="261.66666666666669" y="0.0" width="67.333333333333314" height="25.333333333333332"/>
+                                                                                <state key="normal" title="32">
+                                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                </state>
+                                                                                <connections>
+                                                                                    <action selector="thirtytwoPlayersButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="pyc-nM-B7C"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                        </subviews>
+                                                                    </stackView>
                                                                 </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="5va-i8-zgF" firstAttribute="leading" secondItem="CWP-qa-3K9" secondAttribute="leading" id="5P0-Al-wyq"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="5va-i8-zgF" secondAttribute="trailing" id="KCs-Ox-EGX"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="REY-2i-ayh" secondAttribute="trailing" id="L32-Ff-EbO"/>
+                                                                    <constraint firstItem="REY-2i-ayh" firstAttribute="leading" secondItem="CWP-qa-3K9" secondAttribute="leading" id="fvV-0e-siV"/>
+                                                                </constraints>
                                                             </stackView>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.170410594" green="0.85326776650000002" blue="0.50513590419999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
-                                                            <constraint firstItem="REY-2i-ayh" firstAttribute="leading" secondItem="hTf-Sc-7ek" secondAttribute="leading" constant="8" id="Gv6-h8-lyx"/>
-                                                            <constraint firstAttribute="trailing" secondItem="REY-2i-ayh" secondAttribute="trailing" constant="8" id="MJR-9L-Zii"/>
-                                                            <constraint firstItem="REY-2i-ayh" firstAttribute="centerY" secondItem="hTf-Sc-7ek" secondAttribute="centerY" id="cJy-db-nVd"/>
-                                                            <constraint firstItem="REY-2i-ayh" firstAttribute="centerX" secondItem="hTf-Sc-7ek" secondAttribute="centerX" id="hya-Ak-xU0"/>
+                                                            <constraint firstItem="CWP-qa-3K9" firstAttribute="top" secondItem="hTf-Sc-7ek" secondAttribute="top" constant="8" id="2qD-x4-MVR"/>
+                                                            <constraint firstItem="CWP-qa-3K9" firstAttribute="centerY" secondItem="hTf-Sc-7ek" secondAttribute="centerY" id="Ak3-Wk-5Ks"/>
+                                                            <constraint firstAttribute="bottom" secondItem="CWP-qa-3K9" secondAttribute="bottom" constant="8" id="dUK-ve-Cgb"/>
+                                                            <constraint firstAttribute="trailing" secondItem="CWP-qa-3K9" secondAttribute="trailing" constant="8" id="ggT-SR-0sf"/>
+                                                            <constraint firstItem="CWP-qa-3K9" firstAttribute="centerX" secondItem="hTf-Sc-7ek" secondAttribute="centerX" id="kI3-GB-Nh3"/>
+                                                            <constraint firstItem="CWP-qa-3K9" firstAttribute="leading" secondItem="hTf-Sc-7ek" secondAttribute="leading" constant="8" id="l08-8i-E6J"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="112" id="xEe-6G-GM9"/>
+                                                    <constraint firstAttribute="height" constant="130" id="xEe-6G-GM9"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Zpg-iQ-Re5">
-                                                <rect key="frame" x="15" y="135" width="345" height="112"/>
+                                                <rect key="frame" x="15" y="153" width="345" height="112"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PPh-QV-Fhm" customClass="CustomViewWithRoundedCorners" customModule="TournamentApplication" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="52"/>
@@ -410,8 +456,9 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="30" id="dy6-xc-5Nb"/>
                                                                         </constraints>
+                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
                                                                         <state key="normal" title="+">
-                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <color key="titleColor" red="0.94258779290000005" green="0.59706002469999997" blue="0.21567067500000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         </state>
                                                                         <connections>
                                                                             <action selector="addPlayerButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="E8k-rA-MuY"/>
@@ -438,7 +485,7 @@
                                                                 <rect key="frame" x="8" y="11" width="329" height="30"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9BO-fJ-X5G" customClass="customRoundedButtons" customModule="TournamentApplication" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="158.66666666666666" height="30"/>
                                                                         <state key="normal" title="Rearange Players">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -447,7 +494,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRM-vf-0uf" customClass="customRoundedButtons" customModule="TournamentApplication" customModuleProvider="target">
-                                                                        <rect key="frame" x="170.5" y="0.0" width="158.5" height="30"/>
+                                                                        <rect key="frame" x="170.66666666666663" y="0.0" width="158.33333333333337" height="30"/>
                                                                         <state key="normal" title="Shuffle Players">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
@@ -472,7 +519,7 @@
                                                 </constraints>
                                             </stackView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="345" placeholderIntrinsicHeight="100" alwaysBounceVertical="YES" scrollEnabled="NO" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oY2-4Q-EjP" customClass="SelfSizedTableView" customModule="TournamentApplication" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="277" width="345" height="100"/>
+                                                <rect key="frame" x="15" y="295" width="345" height="100"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="fBd-qf-pJr"/>
@@ -489,7 +536,7 @@
                                                                     <rect key="frame" x="0.0" y="10" width="345" height="50"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3If-v5-Y1O">
-                                                                            <rect key="frame" x="10" y="14.5" width="42" height="21"/>
+                                                                            <rect key="frame" x="10" y="14.666666666666668" width="42" height="21.000000000000004"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
@@ -554,6 +601,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Create Tournament" largeTitleDisplayMode="always" id="hIC-hC-vNt">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="EaV-qg-ogR">
+                            <color key="tintColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="saveButtonTapped:" destination="f62-K8-D4M" id="ADz-h6-sr1"/>
                             </connections>
@@ -576,47 +624,59 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sot-Km-Le7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1105" y="852"/>
+            <point key="canvasLocation" x="1103.6231884057972" y="1052.4456521739132"/>
         </scene>
         <!--Resolve Tie View Controller-->
         <scene sceneID="LBj-qu-I6U">
             <objects>
                 <viewController storyboardIdentifier="tieVC" id="WCT-hF-aEx" customClass="ResolveTieViewController" customModule="TournamentApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xO4-kA-zLN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qnY-JP-We8" customClass="customRoundedButtons" customModule="TournamentApplication" customModuleProvider="target">
-                                <rect key="frame" x="94" y="588" width="187.5" height="39"/>
+                                <rect key="frame" x="103.66666666666669" y="657" width="207" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="doneButtonTapped:" destination="WCT-hF-aEx" eventType="touchUpInside" id="qAv-Bb-NBM"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="H0k-CY-INs">
-                                <rect key="frame" x="222" y="191.5" width="111" height="284"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="H0k-CY-INs">
+                                <rect key="frame" x="222" y="233.66666666666663" width="150" height="269"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Name)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIR-9g-0Nc">
-                                        <rect key="frame" x="15" y="0.0" width="81" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Name)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIR-9g-0Nc">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="j4r-N3-TES"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(25)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPy-8J-bib">
-                                        <rect key="frame" x="37" y="75" width="37.5" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Previous score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fvz-BR-Xn2">
+                                        <rect key="frame" x="16.333333333333336" y="55.000000000000036" width="117.33333333333331" height="20.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(25)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPy-8J-bib">
+                                        <rect key="frame" x="7.6666666666666572" y="100.33333333333334" width="135" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="135" id="r8P-fR-jUj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(25)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19c-AD-xnw">
-                                        <rect key="frame" x="0.0" y="144" width="111" height="66"/>
+                                        <rect key="frame" x="19.666666666666657" y="149.33333333333334" width="111" height="65.666666666666657"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="55"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="fXf-wA-t7L">
-                                        <rect key="frame" x="8.5" y="255" width="94" height="29"/>
+                                        <rect key="frame" x="28" y="240.00000000000003" width="94" height="28.999999999999972"/>
                                         <color key="tintColor" red="0.19619800030000001" green="1" blue="0.59803307670000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <action selector="playerTwoStepperPressed:" destination="WCT-hF-aEx" eventType="valueChanged" id="or0-j7-Fxp"/>
@@ -624,29 +684,41 @@
                                     </stepper>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="ycQ-tl-bhb">
-                                <rect key="frame" x="42" y="191.5" width="111" height="284"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ycQ-tl-bhb">
+                                <rect key="frame" x="42" y="233.66666666666663" width="150" height="269"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Name)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhC-X8-CVR">
-                                        <rect key="frame" x="15" y="0.0" width="81" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Name)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhC-X8-CVR">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="vq6-Pw-1G0"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(25)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixX-a0-FaD">
-                                        <rect key="frame" x="37" y="75" width="37.5" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Previous score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIn-Pl-J0E">
+                                        <rect key="frame" x="16.333333333333336" y="55.000000000000036" width="117.33333333333331" height="20.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(25)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixX-a0-FaD">
+                                        <rect key="frame" x="7.6666666666666572" y="100.33333333333334" width="135" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="135" id="yvR-hc-ON4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(25)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFs-qG-w9h">
-                                        <rect key="frame" x="0.0" y="144" width="111" height="66"/>
+                                        <rect key="frame" x="19.666666666666657" y="149.33333333333334" width="111" height="65.666666666666657"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="55"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="gBK-mS-BFc">
-                                        <rect key="frame" x="8.5" y="255" width="94" height="29"/>
+                                        <rect key="frame" x="28" y="240.00000000000003" width="94" height="28.999999999999972"/>
                                         <color key="tintColor" red="0.19619800030000001" green="1" blue="0.59803307670000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <action selector="playerOneStepperPressed:" destination="WCT-hF-aEx" eventType="valueChanged" id="mkn-dN-qsG"/>
@@ -655,9 +727,9 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resolve Tie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sON-6G-Ob1">
-                                <rect key="frame" x="0.0" y="81.5" width="375" height="65"/>
+                                <rect key="frame" x="0.0" y="113.66666666666669" width="414" height="65"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="50"/>
-                                <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.1078908177" green="0.99215686270000003" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -665,7 +737,7 @@
                         <constraints>
                             <constraint firstItem="sON-6G-Ob1" firstAttribute="width" secondItem="xO4-kA-zLN" secondAttribute="width" id="6yl-uV-Pos"/>
                             <constraint firstItem="sON-6G-Ob1" firstAttribute="centerX" secondItem="xO4-kA-zLN" secondAttribute="centerX" id="9Ny-3c-WNp"/>
-                            <constraint firstItem="H0k-CY-INs" firstAttribute="top" secondItem="sON-6G-Ob1" secondAttribute="bottom" constant="45" id="STo-lG-nfZ"/>
+                            <constraint firstItem="H0k-CY-INs" firstAttribute="top" secondItem="sON-6G-Ob1" secondAttribute="bottom" constant="55" id="HHa-Qb-ilN"/>
                             <constraint firstItem="qnY-JP-We8" firstAttribute="width" secondItem="xO4-kA-zLN" secondAttribute="width" multiplier="0.5" id="Swe-ka-VCO"/>
                             <constraint firstItem="qnY-JP-We8" firstAttribute="centerX" secondItem="xO4-kA-zLN" secondAttribute="centerX" id="UjI-ES-drR"/>
                             <constraint firstItem="H0k-CY-INs" firstAttribute="centerY" secondItem="xO4-kA-zLN" secondAttribute="centerY" id="aZB-VB-NRh"/>
@@ -697,7 +769,7 @@
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="N72-I4-Ukm">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

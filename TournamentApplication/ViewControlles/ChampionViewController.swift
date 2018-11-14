@@ -13,9 +13,11 @@ class ChampionViewController: UIViewController {
     
     var tournamentName : Tournament?
     var round : Round?
+    var pulsatingLayer: CAShapeLayer!
     
     
     @IBOutlet weak var championNameLabel: UILabel!
+    
     
     
     
@@ -27,12 +29,25 @@ class ChampionViewController: UIViewController {
         
         championNameLabel.text = champion.name
         tournamentName?.isCompleted = true
+        
+        animateLabel()
+        TournamentController.shared.save(tournament: TournamentController.shared.tournaments)
     }
     
 
- 
-    @IBAction func homeButtonTapped(_ sender: Any) {
-        navigationController?.popToRootViewController(animated: true)
+
+    func animateLabel(){
+       let height = championNameLabel.bounds.height * 2
+        let widht = championNameLabel.bounds.width * 2
+        UIView.animate(withDuration: 2, animations: {
+            self.championNameLabel.bounds.size = CGSize(width: widht, height: height)
+        })
     }
     
+    
+    
+    @IBAction func homeButtonPressed(_ sender: Any) {
+         navigationController?.popToRootViewController(animated: true)
+        
+    }
 }
