@@ -24,10 +24,14 @@ class TournamentController {
         tournaments.append(tournament)
     }
     
+    func delete(tournament: Tournament){
+        guard let index = tournaments.index(of: tournament) else {return}
+        tournaments.remove(at: index)
+    }
+    
     
     func save(tournament: [Tournament]){
         let jasonEncoder = PropertyListEncoder()
-        
         do {
             let data = try jasonEncoder.encode(tournament)
             try data.write(to: fileURL())
@@ -35,6 +39,7 @@ class TournamentController {
             print("Error encoding data: \(error)")
         }
     }
+    
     
     func loadTournaments() -> [Tournament]?{
         let jasonDecoder = PropertyListDecoder()
@@ -50,7 +55,6 @@ class TournamentController {
     }
     
     
-    
     func fileURL() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = paths[0]
@@ -59,6 +63,4 @@ class TournamentController {
         return fullURL
         
     }
-    
-    
 }

@@ -9,7 +9,8 @@
 import Foundation
 
 
-class Tournament: Codable {
+class Tournament: Codable, Equatable {
+    
     
     var name: String
     var round: [Round]
@@ -19,5 +20,13 @@ class Tournament: Codable {
         self.name = name
         self.round = round
         self.isCompleted = isCompleted
+    }
+    
+    
+    static func == (lhs: Tournament, rhs: Tournament) -> Bool {
+        if lhs.name != rhs.name {return false}
+        if lhs.round != rhs.round {return false}
+        if lhs.isCompleted != rhs.isCompleted {return false}
+        return true
     }
 }

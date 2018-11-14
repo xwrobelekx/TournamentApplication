@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment version="4144" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,7 +44,7 @@
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcS-Es-nbs">
                                                                             <rect key="frame" x="15" y="18" width="52" height="24"/>
                                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                                            <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
@@ -171,7 +172,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Eq-PU-2Xg">
                                                     <rect key="frame" x="145" y="9" width="55.5" height="60"/>
                                                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="55"/>
-                                                    <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -338,28 +339,36 @@
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfl-yP-VYb" customClass="customRoundedButtons" customModule="TournamentApplication" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="73.5" height="30"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                        <state key="normal" title="4 Players"/>
+                                                                        <state key="normal" title="4 Players">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
                                                                         <connections>
                                                                             <action selector="fourPlayersButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="sPY-bk-7S3"/>
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rpV-sn-QyI" customClass="customRoundedButtons" customModule="TournamentApplication" customModuleProvider="target">
                                                                         <rect key="frame" x="85.5" y="0.0" width="73" height="30"/>
-                                                                        <state key="normal" title="8 Players"/>
+                                                                        <state key="normal" title="8 Players">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
                                                                         <connections>
                                                                             <action selector="eightPlayersButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="mWN-po-uBE"/>
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14U-SZ-fdl" customClass="customRoundedButtons" customModule="TournamentApplication" customModuleProvider="target">
                                                                         <rect key="frame" x="170.5" y="0.0" width="73.5" height="30"/>
-                                                                        <state key="normal" title="16 Players"/>
+                                                                        <state key="normal" title="16 Players">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
                                                                         <connections>
                                                                             <action selector="sixteenPlayersButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="ePE-l9-i7o"/>
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hbi-nB-SMS" customClass="customRoundedButtons" customModule="TournamentApplication" customModuleProvider="target">
                                                                         <rect key="frame" x="256" y="0.0" width="73" height="30"/>
-                                                                        <state key="normal" title="32 Players"/>
+                                                                        <state key="normal" title="32 Players">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
                                                                         <connections>
                                                                             <action selector="thirtytwoPlayersButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="pyc-nM-B7C"/>
                                                                         </connections>
@@ -401,7 +410,9 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="30" id="dy6-xc-5Nb"/>
                                                                         </constraints>
-                                                                        <state key="normal" title="+"/>
+                                                                        <state key="normal" title="+">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
                                                                         <connections>
                                                                             <action selector="addPlayerButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="E8k-rA-MuY"/>
                                                                         </connections>
@@ -428,14 +439,18 @@
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9BO-fJ-X5G" customClass="customRoundedButtons" customModule="TournamentApplication" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="158.5" height="30"/>
-                                                                        <state key="normal" title="Rearange Players"/>
+                                                                        <state key="normal" title="Rearange Players">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
                                                                         <connections>
                                                                             <action selector="rearangePlayersButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="V1m-c6-Aq1"/>
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRM-vf-0uf" customClass="customRoundedButtons" customModule="TournamentApplication" customModuleProvider="target">
                                                                         <rect key="frame" x="170.5" y="0.0" width="158.5" height="30"/>
-                                                                        <state key="normal" title="Shuffle Players"/>
+                                                                        <state key="normal" title="Shuffle Players">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
                                                                         <connections>
                                                                             <action selector="shufflePlayersButtonTapped:" destination="f62-K8-D4M" eventType="touchUpInside" id="eoq-XQ-ef8"/>
                                                                         </connections>
@@ -642,7 +657,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resolve Tie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sON-6G-Ob1">
                                 <rect key="frame" x="0.0" y="81.5" width="375" height="65"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="50"/>
-                                <color key="textColor" red="0.94258779287338257" green="0.59706002473831177" blue="0.21567067503929138" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -686,7 +701,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.170410594" green="0.85326776650000002" blue="0.50513590419999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>

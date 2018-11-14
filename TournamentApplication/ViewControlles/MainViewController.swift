@@ -16,10 +16,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tournamentListTVHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var infoLabel: UILabel!
     
+  
     
     //MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+      //  setNeedsStatusBarAppearanceUpdate()
+        
         tournamentsTableView.delegate = self
         tournamentsTableView.dataSource = self
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -34,6 +37,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         tournamentListTVHeightConstraint.constant = tournamentsTableView.contentSize.height
         hideShowInfoLabel()
     }
+    
+   
     
     
     //MARK: - Table View DataSource
@@ -120,7 +125,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            TournamentController.shared.tournaments.remove(at: indexPath.row)
+            var tournament: Tournament?
+            if indexPath.section == 0 {
+                tournament = TournamentController.shared.tournaments.filter({!$0.isCompleted})[indexPath.row]
+            } else if indexPath.section == 1 {
+                tournament = TournamentController.shared.tournaments.filter({!$0.isCompleted})[indexPath.row]
+            }
+            guard let tournamentToDelete = tournament else {return}
+            TournamentController.shared.delete(tournament: tournamentToDelete)
         }
         tableView.deleteRows(at: [indexPath], with: .fade)
         tableView.reloadData()

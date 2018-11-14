@@ -169,10 +169,13 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
     
     
     @IBAction func saveButtonTapped(_ sender: Any) {
+        if curentPlayerCount == 0 {
+            showAlert(title: "Not Enough Players", message: "Please add more players.")
+            return
+        }
         currentPlayers = convertToSingleArray(doubleArray: createTeam)
         guard let tournamentName = tournamentNameTextField.text, tournamentName != "" else {
-            print("No Turnament name")
-            showAlert(title: "Error", message: "Invalid or missing tournament name.")
+            showAlert(title: "Missing Tournament Name", message: "Please add a tournament name.")
             return}
         
         
@@ -214,6 +217,7 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
         rounds.append(round)
         let tournament = Tournament(name: tournamentName, round: rounds)
         TournamentController.shared.addTournament(tournament: tournament)
+        TournamentController.shared.save(tournament: TournamentController.shared.tournaments)
         navigationController?.popViewController(animated: true)
     }
     

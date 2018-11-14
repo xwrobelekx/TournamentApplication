@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let tournaments = TournamentController.shared.loadTournaments() {
             TournamentController.shared.tournaments = tournaments
         }
+        
+        
         return true
     }
 
