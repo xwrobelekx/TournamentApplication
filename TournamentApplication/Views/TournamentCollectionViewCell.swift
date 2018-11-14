@@ -22,9 +22,9 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
             saveScoreforPlayer()
         }
     }
-    
     var delegate : PlayerCollectionViewCellDelegate?
     var userEnteredScoreNotofication = "userEnteredScoreNotofication"
+    
     
     //MARK: - Outlets
     @IBOutlet weak var playersNameLabel: UILabel!
@@ -54,19 +54,18 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name("userPressedNextRoundButtonNotification"), object: self)
     }
     
-    
+    ///notification method to save players score and update views
     @objc func runThisCodeToSaveMyScore(){
         playerOneScoreTextField.resignFirstResponder()
         playerTwoTextField.resignFirstResponder()
         saveScoreforPlayer()
     }
     
-    
     func textFieldDidEndEditing(_ textField: UITextField) {
         saveScoreforPlayer()
     }
     
-    
+    //restores the cell to its original state
     override func prepareForReuse() {
         playerOneScoreTextField.text = ""
         playerTwoTextField.text = ""
@@ -107,7 +106,6 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
         
         //checks if both players have score and assign a winning player
         if let scoreOne = playerOne.score, let scoreTwo = playerTwo.score {
-            
             if scoreOne > scoreTwo {
                 playerOne.roundWinner = true
                 playerTwo.roundWinner = false
@@ -121,7 +119,7 @@ class TournamentCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     
     
     
-    
+    ///updates views based on players properties
     func updateViews() {
         middleLabel.text = "VS"
         

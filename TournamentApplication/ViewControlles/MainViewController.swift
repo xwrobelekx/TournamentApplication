@@ -16,12 +16,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tournamentListTVHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var infoLabel: UILabel!
     
-  
     
     //MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  setNeedsStatusBarAppearanceUpdate()
+        //  setNeedsStatusBarAppearanceUpdate()
         
         tournamentsTableView.delegate = self
         tournamentsTableView.dataSource = self
@@ -37,8 +36,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         tournamentListTVHeightConstraint.constant = tournamentsTableView.contentSize.height
         hideShowInfoLabel()
     }
-    
-   
     
     
     //MARK: - Table View DataSource
@@ -56,7 +53,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let label = UILabel()
         label.textColor = .white
         if section == 0 {
-            label.text = "Current Tournaments"
+            label.text = "Open Tournaments"
         } else {
             label.text = "Completed Tournaments"
         }
@@ -81,13 +78,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else {
             return TournamentController.shared.tournaments.filter({$0.isCompleted}).count
         }
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tournamentCell", for: indexPath) as? TournamentCustomTableViewCell
         var turnamentName = ""
-        
         if indexPath.section == 0 {
             let turnaments = TournamentController.shared.tournaments.filter({!$0.isCompleted})
             turnamentName = turnaments[indexPath.row].name
@@ -95,7 +90,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             let turnaments = TournamentController.shared.tournaments.filter({$0.isCompleted})
             turnamentName = turnaments[indexPath.row].name
         }
-        
         cell?.tournamentNameLabel.text = turnamentName
         return cell ?? UITableViewCell()
     }
@@ -117,7 +111,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let viewController = storyboard.instantiateViewController(withIdentifier: "GameCVC") as? GameCollectionViewController {
             viewController.tournamentName = turnament
             viewController.round = round
-            viewController.navigationItem.title = turnament.name
+            viewController.navigationItem.title = round?.round.rawValue 
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }

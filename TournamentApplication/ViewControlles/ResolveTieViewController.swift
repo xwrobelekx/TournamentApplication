@@ -9,12 +9,11 @@
 import UIKit
 
 class ResolveTieViewController: UIViewController {
-
+    
     
     //MARK: - Properties
     var playerOne: Player?
     var playerTwo: Player?
-    
     var playerOneScore = 0
     var playerTwoScore = 0
     
@@ -29,7 +28,6 @@ class ResolveTieViewController: UIViewController {
     @IBOutlet weak var playerTwoNewScore: UILabel!
     
     
-    
     //MARK: - LifeCycleMethods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +37,7 @@ class ResolveTieViewController: UIViewController {
         playerTwoOldScore.isHidden = true
         playerOneNewScore.text = "0"
         playerTwoNewScore.text = "0"
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +45,8 @@ class ResolveTieViewController: UIViewController {
         updateViews()
     }
     
+    
+    //MARK: - UpdateViews Method
     func updateViews() {
         guard let playerOne = playerOne, let playerTwo = playerTwo else {return}
         playerOneNameLabel.text = playerOne.name
@@ -73,17 +74,13 @@ class ResolveTieViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    
     @IBAction func playerOneStepperPressed(_ sender: UIStepper) {
         playerOneNewScore.text = String(Int(sender.value))
         playerOneScore = Int(sender.value)
     }
     
-
     @IBAction func playerTwoStepperPressed(_ sender: UIStepper) {
         playerTwoNewScore.text = String(Int(sender.value))
         playerTwoScore = Int(sender.value)
     }
-    
-    
 }

@@ -15,12 +15,5 @@ class CustomViewWithRoundedCorners: UIView {
         super.draw(rect)
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 9
-
     }
-    
-    
-
-    
-    
-
 }

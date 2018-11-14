@@ -14,9 +14,6 @@ class customRoundedButtons: UIButton {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         self.layer.backgroundColor = UIColor.orange.cgColor
-       // self.layer.shadowColor = UIColor.darkGray.cgColor
-        //self.layer.shadowRadius = 4
-        //self.layer.shadowOpacity = 0.75
         self.layer.cornerRadius = 6
     }
 }

@@ -11,7 +11,7 @@ import UIKit
 private let reuseIdentifier = "playersCell"
 
 class GameCollectionViewController: UICollectionViewController, PlayerCollectionViewCellDelegate {
-   
+    
     
     //MARK: - Properties
     var numberofSections: Int = 0
@@ -32,22 +32,20 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.keyboardDismissMode = .onDrag
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         guard let curentRound = round else {return}
-        print("🔥 \(curentRound.round.rawValue)")
-        //this may ne moved to viewDidLoad
         players = curentRound.players
-        
-
         playerPairs = PlayerController.shared.convertToPairs(array: players)
         self.collectionView.reloadData()
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-
+    
     
     //MARK: - CollectionView Data Source
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -68,13 +66,13 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
         
         //stops the player from going into this VC when the round was completed already
         if let round = round, round.isCompleted == false {
-        
-        //go to next screen where you can increment or decrement scores
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let resolveTieVc = storyboard.instantiateViewController(withIdentifier: "tieVC") as? ResolveTieViewController {
-            resolveTieVc.playerOne = playerPairs[indexPath.row][0]
-            resolveTieVc.playerTwo = playerPairs[indexPath.row][1]
-            self.navigationController?.pushViewController(resolveTieVc, animated: true)
+            
+            //go to next screen where you can increment or decrement scores
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let resolveTieVc = storyboard.instantiateViewController(withIdentifier: "tieVC") as? ResolveTieViewController {
+                resolveTieVc.playerOne = playerPairs[indexPath.row][0]
+                resolveTieVc.playerTwo = playerPairs[indexPath.row][1]
+                self.navigationController?.pushViewController(resolveTieVc, animated: true)
             }
         }
     }
@@ -87,6 +85,7 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
     //MARK: - Actions
     @IBAction func nextRoundButtonTapped(_ sender: Any) {
         postNotificationToSaveUserScore()
+        
         //checks if all players have score assigned
         for player in players {
             if player.score == nil {
@@ -118,31 +117,24 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
             switch round.round {
             case .champion:
                 nextRound = .champion
-                print("☢️next round set to: \(nextRound)")
                 background = .purple
             case .final:
                 nextRound = .champion
-                print("☢️next round set to: \(nextRound)")
                 background = .red
             case .semiFinal:
                 nextRound = .final
-                print("☢️next round set to: \(nextRound)")
                 background = .yellow
             case .quarterFinal:
                 nextRound = .semiFinal
-                print("☢️next round set to: \(nextRound)")
                 background = .blue
             case .roundOfEight:
                 nextRound = .quarterFinal
-                print("☢️next round set to: \(nextRound)")
                 background = .cyan
             case .roundOfSixteen:
                 nextRound = .roundOfEight
-                print("☢️next round set to: \(nextRound)")
                 background = .lightGray
             default:
                 print("default case")
-                print("☢️next round set to: \(nextRound)")
             }
             
             
@@ -159,15 +151,15 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
                 }
             }
             
-            
+            //show correct story board depending on round
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
             if nextRound == .champion {
                 round.isCompleted = true
                 if let championVC = storyboard.instantiateViewController(withIdentifier: "championVC") as? ChampionViewController {
                     championVC.tournamentName = tournamentName
+                    championVC.navigationItem.title = nextRound.rawValue
                     championVC.round = nextRnd
-                    print("🔥🔥 \(nextRound.rawValue)")
                     self.navigationController?.pushViewController(championVC, animated: true)
                 }
             } else {
@@ -176,18 +168,12 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
                     viewController.view.backgroundColor = .yellow
                     viewController.tournamentName = tournamentName
                     viewController.round = nextRnd
-                    print("🔥🔥🔥 \(nextRound.rawValue)")
+                    viewController.navigationItem.title = nextRound.rawValue
                     viewController.view.backgroundColor = background
-                    print("‼️ game: \(tournamentName), round: \(nextRound)")
                     self.navigationController?.pushViewController(viewController, animated: true)
                 }
             }
         }
-    }
-    
-
-    @objc func reloadCollectionView(){
-        self.collectionView.reloadData()
     }
     
     
@@ -195,10 +181,16 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
     func callAlertForInvalidNumber(playersName: String) {
         showAlert(title: "Invalid Score", message: "Please enter valid score for \(playersName).")
     }
-
     
+    //MARK: - Notification Selector Method
+//    @objc func reloadCollectionView(){
+//        self.collectionView.reloadData()
+//    }
+    
+    
+    //MARK: - Helper Methods
     func checkForwinners() -> [Player] {
-      //  let pairedPlayers = splitInPairs(array: players)
+        //  let pairedPlayers = splitInPairs(array: players)
         var winers = [Player]()
         
         players.forEach({
@@ -207,17 +199,16 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
                     let player = Player(name: $0.name, score: nil)
                     winers.append(player)
                 }}})
-
+        
         return winers
     }
     
-    
+    ///This methods calculates corect index path for sectioned table / collection View
     func alteredIndexPath(indexPath: IndexPath) -> Int {
         return (indexPath.section * 2) + (indexPath.row)
     }
     
-    
-    //this should iterate thru array and organize the players into pairs
+    ///This method iterate thru array and convert a single array into an array of arrays where each contains 2 elements
     func splitInPairs<T>(array: [T]) -> [[T]]{
         var counter = 1
         var index = 0
@@ -237,7 +228,6 @@ class GameCollectionViewController: UICollectionViewController, PlayerCollection
         masterarray.append(pair)
         return masterarray
     }
-    
     
     func showAlert(title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

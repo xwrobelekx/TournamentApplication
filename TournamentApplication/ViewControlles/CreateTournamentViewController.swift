@@ -16,7 +16,7 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
     var curentPlayerCount = 0
     var currentPlayers = [Player]()
     var createTeam = [[Player]]()
-
+    var playersOutlets = [customRoundedButtons]()
     
     //MARK: - Outlets
     @IBOutlet weak var tournamentNameTextField: UITextField!
@@ -32,7 +32,7 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
     @IBOutlet weak var eightPlayersOutlet: customRoundedButtons!
     @IBOutlet weak var sixteenPlayerOutlet: customRoundedButtons!
     @IBOutlet weak var thirtyTwoPlayersOutlet: customRoundedButtons!
-    var playersOutlets = [customRoundedButtons]()
+    
     
     
     
@@ -186,7 +186,6 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
             showAlert(title: "To many players", message: "Please select a larger amount of players")
         }
         
-        //here we would assign our local array to main dictionary inder curent turnament name
         var roundName: RoundName = .invalid
         var rounds = [Round]()
         var round = Round(round: .invalid, players: [])
@@ -232,10 +231,12 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
         return true
     }
     
+    ///reverts all buttons to unhiglighted state - original color
     func changeButtonsToOriginlState(){
         playersOutlets.forEach({ $0.layer.backgroundColor = UIColor.orange.cgColor})
     }
     
+    ///Adds player to tournament
     func addPlayer(){
         guard let playerName = playerNameTextField.text else {return}
         if playerName != "" && curentPlayerCount < playerCount {
@@ -250,6 +251,7 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
         }
     }
     
+    ///Unhides tableview, and add players textField
     func unhideViews(){
         playerNameTextField.becomeFirstResponder()
         playersTableView.isHidden = false
@@ -257,23 +259,11 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
         loadViewIfNeeded()
     }
     
+    ///Calculates correct index Path for sectioned tableView
     func modified(indexPath: IndexPath) -> Int {
         return (indexPath.section * 2) + (indexPath.row)
     }
     
-    func newIndex(indexPath: IndexPath) -> Int{
-        if currentPlayers.count % 2 == 0{
-            return modified(indexPath: indexPath)
-        } else {
-            switch indexPath.section {
-            case 0:
-                return modified(indexPath: indexPath)
-            default:
-                return modified(indexPath: indexPath) - 1
-            }
-            
-        }
-    }
     
     func showAlert(title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -283,12 +273,16 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
         present(alert, animated: true)
     }
     
+    
+    ///Checks if the game have enough players
     func notEnoughPlayersAlert(howManyMorePlayers: Int){
         let alert = UIAlertController(title: "Not Enough Players", message: "Please add \(howManyMorePlayers) more players.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alert, animated: true)
     }
     
+    
+    ///prevents adding moreplayers to the tournament
     func blockFromAddingMorePlayers(at number: Int){
         playerCount = number
         if currentPlayers.count != 0 && currentPlayers.count <= number{
@@ -302,7 +296,7 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
     }
     
     
-    //this should iterate thru array and organize the playiers into pairs
+    ///Iterates thru array and organize the playiers into pairs
     func convertToPairs<T>(array: [T]) -> [[T]]{
         var index = 0
         var masterarray = [[T]]()
@@ -339,7 +333,7 @@ class CreateTournamentViewController: UIViewController, UITableViewDataSource, U
         return masterarray
     }
     
-    
+    ///Converts double array into a single array
     func convertToSingleArray<T>(doubleArray: [[T]]) -> [T] {
         var tempArray = [T]()
         
